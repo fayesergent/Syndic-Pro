@@ -45,7 +45,7 @@ function StepDots({current}) {
 export const OnboardingView = ({isMobile, onDone, onClose}) => {
   // onDone : callback optionnel quand utilisé en mode back-office (overlay)
   // Si non fourni → mode onboarding normal (nouvel utilisateur)
-  const {completeOnboarding, reloadImmeubles} = useApp();
+  const {completeOnboarding, reloadImmeubles, logout} = useApp();
   const [step,    setStep]    = useState(1);
   const [err,     setErr]     = useState("");
   const [saving,  setSaving]  = useState(false);
@@ -249,11 +249,16 @@ export const OnboardingView = ({isMobile, onDone, onClose}) => {
       <div style={{position:"absolute",bottom:-80,left:-80,width:220,height:220,borderRadius:"50%",background:"#10B98108",pointerEvents:"none"}}/>
 
       <div style={{background:"#fff",borderRadius:20,padding:isMobile?"24px 18px":"36px 40px",width:"100%",maxWidth:560,boxShadow:"0 24px 64px rgba(0,0,0,0.3)",position:"relative"}}>
-        {/* Bouton fermer en mode back-office */}
-        {onClose && (
+        {/* Bouton fermer (back-office) ou déconnexion (onboarding) */}
+        {onClose ? (
           <button onClick={onClose}
             style={{position:"absolute",top:16,right:16,background:"#F1F5F9",border:"none",borderRadius:8,padding:"6px 8px",color:"#64748B",cursor:"pointer",fontSize:11,fontWeight:600,display:"flex",alignItems:"center",gap:5}}>
             <Icon name="close" size={13}/>Fermer
+          </button>
+        ) : (
+          <button onClick={logout}
+            style={{position:"absolute",top:16,right:16,background:"#FEF2F2",border:"1px solid #FECACA",borderRadius:8,padding:"6px 10px",color:"#DC2626",cursor:"pointer",fontSize:11,fontWeight:600,display:"flex",alignItems:"center",gap:5}}>
+            <Icon name="logout" size={13}/>Déconnexion
           </button>
         )}
         <div style={{textAlign:"center",marginBottom:20}}>
