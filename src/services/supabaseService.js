@@ -288,45 +288,59 @@ export async function syncToSupabase(action, state, { syndicatId, immeubleId, mo
 // ─── ONBOARDING — Création d'un nouveau syndicat ─────────────────────────────
 
 export async function createSyndicat({ nom, adresse, ville, pays = "SN", devise = "FCFA" }) {
-  // Schéma prod : nom, reference_tf, ville, adresse, logo_url, plan, actif
+  // Essai RPC (SECURITY DEFINER, bypass RLS)
+  try {
+    const {data, error} = await supabase.rpc("create_syndicat_rpc", {
+      p_nom: nom, p_adresse: adresse || null, p_ville: ville || null, p_plan: "starter",
+    });
+    if(!error && data) return data;
+  } catch(_) {}
+  // Fallback direct
   const {data, error} = await supabase.from("syndicats").insert({
-    nom,
-    adresse: adresse || null,
-    ville:   ville   || null,
-    plan:    'starter',
-    actif:   true,
+    nom, adresse: adresse || null, ville: ville || null, plan: 'starter', actif: true,
   }).select().single();
   if(error) throw error;
   return data;
 }
 
 export async function createImmeuble({ syndicatId, nom, adresse, reference_fonciere, ville, nb_lots, budget_mensuel, mode_cotisation }) {
+  const mc = mode_cotisation === "tantieme" ? "tantieme" : "fixe";
+  // Essai RPC
+  try {
+    const {data, error} = await supabase.rpc("create_immeuble_rpc", {
+      p_syndicat_id: syndicatId, p_nom: nom, p_adresse: adresse || null,
+      p_reference_tf: reference_fonciere || null, p_ville: ville || null,
+      p_nb_lots: nb_lots ? Number(nb_lots) : 0,
+      p_budget_mensuel: budget_mensuel ? Number(budget_mensuel) : 0,
+      p_mode_cotisation: mc,
+    });
+    if(!error && data) return data;
+  } catch(_) {}
+  // Fallback direct
   const {data, error} = await supabase.from("immeubles").insert({
-    syndicat_id:    syndicatId,
-    nom,
-    adresse:        adresse || null,
-    reference_tf:   reference_fonciere || null,
-    ville:          ville || null,
-    nb_lots:        nb_lots ? Number(nb_lots) : null,
+    syndicat_id: syndicatId, nom, adresse: adresse || null,
+    reference_tf: reference_fonciere || null, ville: ville || null,
+    nb_lots: nb_lots ? Number(nb_lots) : null,
     budget_mensuel: budget_mensuel ? Number(budget_mensuel) : null,
-    mode_cotisation: mode_cotisation === "tantieme" ? "tantieme" : "fixe",
+    mode_cotisation: mc,
   }).select().single();
   if(error) throw error;
   return data;
 }
 
 export async function createLots(immeubleId, syndicatId, lots) {
-  // Schéma prod : 'appartement' + 'cotisation_mensuelle'
   const rows = lots.map(l => ({
-    immeuble_id:          immeubleId,
-    syndicat_id:          syndicatId,
-    numero:               l.numero,
-    appartement:          l.appart || l.appartement || "",
-    proprio:              l.proprio || "",
-    etage:                l.etage || "",
-    tantieme:             Number(l.tantieme  || 0),
-    cotisation_mensuelle: Number(l.cotisation || 0),
+    immeuble_id: immeubleId, syndicat_id: syndicatId,
+    numero: Number(l.numero), appartement: l.appart || l.appartement || "",
+    proprio: l.proprio || "", etage: l.etage || "",
+    tantieme: Number(l.tantieme || 0), cotisation_mensuelle: Number(l.cotisation || 0),
   }));
+  // Essai RPC batch
+  try {
+    const {data, error} = await supabase.rpc("create_lots_rpc", { p_lots: rows });
+    if(!error && data?.success) return rows;
+  } catch(_) {}
+  // Fallback direct
   const {data, error} = await supabase.from("lots").insert(rows).select();
   if(error) throw error;
   return data;
@@ -362,14 +376,18 @@ export async function createSyndicatFull({ syndicatNom, syndicatAdresse, pays, d
 }
 
 export async function createAdminProfile(userId, { syndicatId, immeubleId, nomComplet, email }) {
+  // Essai RPC
+  try {
+    const {data, error} = await supabase.rpc("upsert_profile_rpc", {
+      p_id: userId, p_syndicat_id: syndicatId, p_immeuble_id: immeubleId,
+      p_nom_complet: nomComplet, p_email: email || null, p_role: "admin", p_lots_ids: [],
+    });
+    if(!error && data) return;
+  } catch(_) {}
+  // Fallback direct
   const row = {
-    id:userId,
-    syndicat_id:syndicatId,
-    immeuble_id:immeubleId,
-    immeubles_ids:[immeubleId],
-    nom_complet:nomComplet,
-    role:"admin",
-    lots_ids:[],
+    id:userId, syndicat_id:syndicatId, immeuble_id:immeubleId,
+    immeubles_ids:[immeubleId], nom_complet:nomComplet, role:"admin", lots_ids:[],
   };
   if(email) row.email = email;
   const {error} = await supabase.from("profiles").upsert(row, {onConflict:"id"});
@@ -412,15 +430,19 @@ export async function updateSyndicat(syndicatId, { nom, adresse, ville, plan, de
 }
 
 export async function deleteSyndicat(syndicatId) {
-  // Essai via edge function
+  // Essai RPC (SECURITY DEFINER)
+  try {
+    const {data, error} = await supabase.rpc("delete_syndicat_rpc", { p_id: syndicatId });
+    if(!error && data?.success) return;
+  } catch(_) {}
+  // Essai edge function
   try {
     const {data, error} = await supabase.functions.invoke("admin-users", {
       body: { action: "delete_syndicat", syndicatId },
     });
     if(!error && data?.success) return;
   } catch(_) {}
-
-  // Fallback : suppression directe en cascade
+  // Fallback direct
   await supabase.from("lots").delete().eq("syndicat_id", syndicatId);
   await supabase.from("paiements").delete().eq("syndicat_id", syndicatId);
   await supabase.from("depenses").delete().eq("syndicat_id", syndicatId);
@@ -447,6 +469,10 @@ export async function updateImmeuble(immeubleId, { nom, adresse, reference_tf, v
 }
 
 export async function deleteImmeuble(immeubleId) {
+  try {
+    const {data, error} = await supabase.rpc("delete_immeuble_rpc", { p_id: immeubleId });
+    if(!error && data?.success) return;
+  } catch(_) {}
   const {error} = await supabase.from("immeubles").delete().eq("id", immeubleId);
   if(error) throw error;
 }
@@ -587,16 +613,19 @@ export async function createProprietaireAccounts(lotsWithUsers, syndicatId, imme
       });
       if(error) throw error;
       if(data?.user) {
-        await supabase.from("profiles").upsert({
-          id:             data.user.id,
-          syndicat_id:    syndicatId,
-          immeuble_id:    immeubleId,
-          immeubles_ids:  [immeubleId],
-          nom_complet:    nomComplet,
-          email:          email,
-          role:           "proprietaire",
-          lots_ids:       lotId ? [lotId] : [],
-        }, {onConflict:"id"});
+        try {
+          await supabase.rpc("upsert_profile_rpc", {
+            p_id: data.user.id, p_syndicat_id: syndicatId, p_immeuble_id: immeubleId,
+            p_nom_complet: nomComplet, p_email: email, p_role: "proprietaire",
+            p_lots_ids: lotId ? [lotId] : [],
+          });
+        } catch(_) {
+          await supabase.from("profiles").upsert({
+            id: data.user.id, syndicat_id: syndicatId, immeuble_id: immeubleId,
+            immeubles_ids: [immeubleId], nom_complet: nomComplet, email: email,
+            role: "proprietaire", lots_ids: lotId ? [lotId] : [],
+          }, {onConflict:"id"});
+        }
         results.created.push({ email, nom: nomComplet, lot: lot.numero });
       }
     } catch(e) {
