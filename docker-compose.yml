@@ -1,0 +1,62 @@
+services:
+
+  # ════════════════════════════════════════════════════════════
+  # SERVICE : app-dev
+  # Mode développement avec hot-reload (HMR Vite)
+  # Commande : docker compose up app-dev
+  # ════════════════════════════════════════════════════════════
+  app-dev:
+    build:
+      context: .          # répertoire racine du projet
+      target: development # stage 2 du Dockerfile
+    container_name: syndicpro-dev
+
+    ports:
+      - "5173:5173"       # port Vite accessible sur http://localhost:5173
+
+    volumes:
+      # Monte le code source local dans le conteneur en temps réel
+      # Toute modification de fichier est instantanément visible
+      - .:/app
+
+      # Protection : empêche que le volume précédent écrase
+      # les node_modules installés dans le conteneur
+      # (l'hôte n'a pas forcément de node_modules)
+      - /app/node_modules
+
+    env_file:
+      - .env              # charge VITE_SUPABASE_URL et VITE_SUPABASE_ANON_KEY
+
+    environment:
+      # Nécessaire sur Linux/WSL pour que Vite détecte
+      # les changements de fichiers via polling inotify
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+
+  # ════════════════════════════════════════════════════════════
+  # SERVICE : app-prod
+  # Mode production compilé, servi par Nginx
+  # Commande : docker compose up app-prod
+  # ════════════════════════════════════════════════════════════
+  app-prod:
+    build:
+      context: .          # répertoire racine du projet
+      target: production  # stage 4 du Dockerfile (Nginx)
+
+      args:
+        # ⚠️  Les variables VITE_* doivent être passées comme
+        # build arguments car Vite les intègre dans le bundle
+        # au moment de la compilation (pas au runtime)
+        #
+        # docker-compose lit automatiquement le fichier .env
+        # et substitue ${VITE_SUPABASE_URL} par sa valeur
+        VITE_SUPABASE_URL: ${VITE_SUPABASE_URL}
+        VITE_SUPABASE_ANON_KEY: ${VITE_SUPABASE_ANON_KEY}
+
+    container_name: syndicpro-prod
+
+    ports:
+      - "4173:80"         # accessible sur http://localhost:4173
+                          # (changer en "80:80" en vrai serveur de prod)
+
+    restart: unless-stopped   # redémarrage automatique en cas de crash

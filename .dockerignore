@@ -1,0 +1,42 @@
+# ── Dépendances (réinstallées dans le conteneur) ──────────────
+node_modules
+.npm
+
+# ── Build output (regénéré par le stage builder) ──────────────
+dist
+build
+
+# ── Git ────────────────────────────────────────────────────────
+.git
+.gitignore
+.gitattributes
+
+# ── Secrets et configuration locale ───────────────────────────
+# Les vars d'environnement sont injectées via docker-compose,
+# pas copiées dans l'image (sécurité : pas de secrets dans les couches)
+.env
+.env.*
+!.env.example
+
+# ── Documentation (inutile dans l'image) ──────────────────────
+*.md
+README.md
+ANALYSE_PROJET.md
+
+# ── Éditeurs et IDE ────────────────────────────────────────────
+.vscode
+.idea
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Logs ───────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ── Outils de développement local ─────────────────────────────
+.claude
+
+# Note : Dockerfile, nginx.conf et docker-compose.yml
+# ne sont PAS ignorés — le build en a besoin

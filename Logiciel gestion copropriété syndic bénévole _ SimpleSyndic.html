@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://simplesyndic.fr/ -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Logiciel gestion copropriété syndic bénévole | SimpleSyndic</title>
+  <meta name="description" content="Le logiciel dédié aux syndics bénévoles et coopératifs : comptabilité réglementaire, convocations AG, appels de charges et assistant IA. Dès 59€/mois — 7 jours gratuits.">
+  <link rel="canonical" href="https://simplesyndic.fr/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://simplesyndic.fr/">
+  <meta property="og:title" content="Logiciel gestion copropriété syndic bénévole | SimpleSyndic">
+  <meta property="og:description" content="Le logiciel dédié aux syndics bénévoles et coopératifs : comptabilité réglementaire, convocations AG, appels de charges et assistant IA. Dès 59€/mois — 7 jours gratuits.">
+  <meta property="og:image" content="https://simplesyndic.fr/images/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:site_name" content="SimpleSyndic">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Logiciel gestion copropriété syndic bénévole | SimpleSyndic">
+  <meta name="twitter:description" content="Le logiciel dédié aux syndics bénévoles et coopératifs : comptabilité réglementaire, convocations AG, appels de charges et assistant IA. Dès 59€/mois — 7 jours gratuits.">
+  <meta name="twitter:image" content="https://simplesyndic.fr/images/og-default.png">
+  <link rel="icon" type="image/svg+xml" href="https://simplesyndic.fr/images/favicon.svg">
+  <link rel="icon" type="image/png" href="https://simplesyndic.fr/images/logo.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link rel="preload" as="style" href="./Logiciel gestion copropriété syndic bénévole _ SimpleSyndic_files/css2">
+  <link href="./Logiciel gestion copropriété syndic bénévole _ SimpleSyndic_files/css2" rel="stylesheet" media="all" onload="this.media=&#39;all&#39;">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #1A2744;
+      --navy-2:  #243558;
+      --gold:      #C49A3C;
+      --gold-lt:   #E8C96A;
+      --gold-text: #8A6518; /* or foncé — texte sur fond clair, ratio ~5.1:1 sur blanc */
+      --cream:   #F7F4EF;
+      --cream-2: #EDE9E2;
+      --ink:     #1A1A1A;
+      --muted:   #5E6977;
+      --border:  #DDD9D0;
+      --white:   #FFFFFF;
+      --green:   #16A34A;
+      --r:    16px; /* cartes standard */
+      --r-sm: 12px; /* petits éléments : icon boxes, badges */
+      --r-md: 20px; /* grandes cartes : pricing, hero card */
+      --r-lg: 24px; /* sections décoratives */
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── UTILITY ──────────────────────────────── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+    /* ── NAV ──────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(26,39,68,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+      will-change: transform;
+      contain: layout style;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-mark {
+      width: 34px; height: 34px; background: var(--gold);
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; overflow: hidden; flex-shrink: 0;
+    }
+    .nav-logo-mark img { width: 24px; height: 24px; object-fit: contain; }
+    .nav-logo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px; font-weight: 700; color: #fff; letter-spacing: -.3px;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 28px;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,.82); text-decoration: none;
+      font-size: 14px; font-weight: 500; transition: color .2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--gold); color: var(--navy) !important;
+      padding: 8px 20px; border-radius: 8px; font-weight: 600 !important;
+      transition: background .2s, transform .15s !important;
+    }
+    .nav-cta:hover { background: var(--gold-lt) !important; transform: translateY(-1px); }
+
+    /* ── HERO ─────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      min-height: 100svh; /* Safari mobile : exclut la barre d'adresse */
+      background: var(--navy);
+      display: flex; align-items: center;
+      padding: 120px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute; top: -20%; right: -10%;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(196,154,60,.12) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; bottom: -15%; left: -5%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(196,154,60,.07) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+    .hero-grid {
+      position: relative;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+      max-width: 1100px; margin: 0 auto; width: 100%;
+    }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(196,154,60,.15); border: 1px solid rgba(196,154,60,.35);
+      color: var(--gold-lt); padding: 6px 16px; border-radius: 99px;
+      font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero-pill-dot {
+      width: 6px; height: 6px; background: var(--gold); border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.8); }
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 5vw, 62px);
+      font-weight: 800; color: #fff; line-height: 1.1;
+      letter-spacing: -.5px; margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: normal; color: var(--gold-lt);
+      position: relative;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,.78); font-size: 17px;
+      line-height: 1.75; margin-bottom: 40px; font-weight: 300;
+    }
+    .hero-cta-group {
+      display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+    }
+    /* ── BTN PRIMARY (or, fond sombre ou clair) ── */
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      padding: 14px 28px; border-radius: 10px;
+      font-size: 15px; font-weight: 700;
+      text-decoration: none; transition: all .2s;
+      box-shadow: 0 4px 20px rgba(196,154,60,.3);
+      white-space: nowrap; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(196,154,60,.42); }
+    /* taille large */
+    .btn-primary.btn-lg { padding: 17px 36px; font-size: 17px; border-radius: 12px; }
+
+    /* ── BTN SECONDARY (ghost sur fond sombre) ── */
+    .btn-secondary {
+      color: rgba(255,255,255,.8);
+      border: 1px solid rgba(255,255,255,.25);
+      padding: 14px 24px; border-radius: 10px;
+      font-size: 15px; font-weight: 500;
+      text-decoration: none; transition: all .2s; white-space: nowrap; display: inline-block;
+    }
+    .btn-secondary:hover { color: #fff; border-color: rgba(255,255,255,.55); background: rgba(255,255,255,.07); }
+    .btn-secondary.btn-lg { padding: 16px 32px; font-size: 17px; border-radius: 12px; border-width: 2px; }
+
+    /* ── BTN TERTIARY (outline sur fond clair) ── */
+    .btn-tertiary {
+      background: transparent; color: var(--navy);
+      padding: 14px 24px; border-radius: 10px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none; border: 1px solid var(--border);
+      transition: all .2s; white-space: nowrap; display: inline-block;
+    }
+    .btn-tertiary:hover { border-color: var(--navy); background: var(--white); }
+    .btn-tertiary.btn-lg { padding: 16px 32px; font-size: 17px; border-radius: 12px; border-width: 2px; }
+
+    /* ── Aliases pour compatibilité ─────────────
+       Les anciennes classes restent fonctionnelles */
+    .btn-gold { background: var(--gold); color: var(--navy); padding: 15px 30px; border-radius: 10px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all .2s; box-shadow: 0 4px 24px rgba(196,154,60,.35); white-space: nowrap; display: inline-block; }
+    .btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,154,60,.45); }
+    .btn-outline-white { color: rgba(255,255,255,.75); border: 1px solid rgba(255,255,255,.2); padding: 14px 24px; border-radius: 10px; font-size: 15px; font-weight: 500; text-decoration: none; transition: all .2s; white-space: nowrap; display: inline-block; }
+    .btn-outline-white:hover { color: #fff; border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.06); }
+    .hero-trust {
+      margin-top: 36px; display: flex; align-items: center; gap: 12px;
+      color: rgba(255,255,255,.82); font-size: 13px;
+    }
+    .hero-trust-icons { display: flex; gap: 4px; }
+    .hero-trust-icons span {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: #fff; margin-left: -6px;
+      flex-shrink: 0;
+    }
+    .hero-trust-icons span:first-child { margin-left: 0; }
+    .hero-trust-icons span:nth-child(1) { background: #5B6FA8; }
+    .hero-trust-icons span:nth-child(2) { background: #7B5EA7; }
+    .hero-trust-icons span:nth-child(3) { background: #3D7D6A; }
+    .hero-trust-icons span:nth-child(4) { background: #B87333; }
+
+    /* Hero card preview */
+    .hero-visual {
+      position: relative;
+    }
+    .hero-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--r-md); padding: 28px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .hero-card-title {
+      color: rgba(255,255,255,.5); font-size: 12px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .08em;
+    }
+    .hero-card-badge {
+      background: rgba(22,163,74,.2); color: #4ade80;
+      font-size: 11px; font-weight: 700; padding: 3px 10px;
+      border-radius: 99px;
+    }
+    .hero-stat-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;
+    }
+    .hero-stat-box {
+      background: rgba(255,255,255,.06); border-radius: 12px; padding: 16px;
+    }
+    .hero-stat-box-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 700; color: #fff; line-height: 1;
+    }
+    .hero-stat-box-lbl {
+      color: rgba(255,255,255,.4); font-size: 11px; margin-top: 4px;
+    }
+    .hero-chat-preview {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .hcp-msg {
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .hcp-avatar {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 12px;
+    }
+    .hcp-avatar.user { background: rgba(255,255,255,.15); color: rgba(255,255,255,.8); font-weight: 700; }
+    .hcp-avatar.bot  { background: var(--gold); font-size: 14px; }
+    .hcp-bubble {
+      padding: 8px 12px; border-radius: 10px;
+      font-size: 12px; line-height: 1.5; max-width: 85%;
+    }
+    .hcp-bubble.user { background: rgba(255,255,255,.1); color: rgba(255,255,255,.75); }
+    .hcp-bubble.bot  { background: rgba(196,154,60,.2); color: rgba(255,255,255,.9); }
+    .hcp-msg.right { flex-direction: row-reverse; }
+
+    /* Float badges */
+    .hero-float {
+      position: absolute;
+      background: var(--white); border-radius: 12px; padding: 12px 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.2);
+      display: flex; align-items: center; gap: 10px;
+      white-space: nowrap;
+      will-change: transform;
+    }
+    .hero-float-left {
+      left: -40px; bottom: 60px;
+      animation: float-left 4s ease-in-out infinite;
+    }
+    .hero-float-right {
+      right: -20px; top: 40px;
+      animation: float-right 4s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+    @keyframes float-left {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes float-right {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+    .hero-float-icon { font-size: 22px; }
+    .hero-float-text { font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+    .hero-float-sub { font-size: 11px; color: var(--muted); font-weight: 400; }
+
+    /* ── LOGOS / PREUVES ──────────────────────── */
+    .proof-bar {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+    }
+    .proof-bar-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .proof-item {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--navy); font-size: 13px; font-weight: 600;
+    }
+    .proof-item svg {
+      width: 18px; height: 18px; flex-shrink: 0;
+      stroke: var(--gold); stroke-width: 2;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ── SECTION HEADERS ──────────────────────── */
+    .s-eyebrow {
+      display: inline-block;
+      font-size: 11px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--navy);
+      margin-bottom: 14px;
+    }
+    /* Sur fonds sombres (navy), l'eyebrow repasse en or clair — règle dans .security */
+    .s-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700; color: var(--navy);
+      line-height: 1.15; letter-spacing: -.3px;
+      margin-bottom: 16px;
+    }
+    .s-sub {
+      font-size: 17px; color: var(--muted);
+      font-weight: 300; line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* ── PROBLEM SECTION ──────────────────────── */
+    .problem { padding: 96px 24px; background: var(--cream); }
+    .problem-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center; margin-top: 56px;
+    }
+    .problem-list { display: flex; flex-direction: column; gap: 20px; }
+    .problem-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 20px 24px; background: var(--white);
+      border-radius: var(--r-sm); border: 1px solid var(--border);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .problem-item:hover { border-color: var(--gold); box-shadow: 0 4px 20px rgba(196,154,60,.1); }
+    .problem-item-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(196,154,60,.1); border: 1px solid rgba(196,154,60,.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .problem-item-icon svg {
+      width: 20px; height: 20px;
+      stroke: var(--gold-text); stroke-width: 1.8;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .problem-item-text h3 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+    .problem-item-text p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .solution-box {
+      background: var(--navy); border-radius: var(--r-lg); padding: 48px;
+      position: relative; overflow: hidden;
+    }
+    .solution-box::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(196,154,60,.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .solution-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 700; color: #fff;
+      margin-bottom: 20px; position: relative;
+    }
+    .solution-list { list-style: none; display: flex; flex-direction: column; gap: 14px; position: relative; }
+    .solution-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      color: rgba(255,255,255,.75); font-size: 15px; line-height: 1.5;
+    }
+    .solution-list li::before {
+      content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+    .solution-saving {
+      margin-top: 32px; padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      display: flex; gap: 32px; position: relative;
+    }
+    .saving-stat { }
+    .saving-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 700; color: var(--gold-lt);
+    }
+    .saving-stat-lbl { font-size: 13px; color: rgba(255,255,255,.65); }
+
+    /* ── FEATURES ─────────────────────────────── */
+    .features { padding: 96px 24px; background: var(--white); }
+    .features-header { margin-bottom: 64px; }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .feat-card {
+      background: var(--cream); border-radius: var(--r); padding: 32px;
+      border: 1px solid var(--border); transition: all .25s;
+      position: relative; overflow: hidden;
+    }
+    .feat-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--navy));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s;
+    }
+    .feat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,39,68,.08); border-color: var(--cream-2); }
+    .feat-card:hover::after { transform: scaleX(1); }
+    .feat-icon {
+      width: 52px; height: 52px; border-radius: var(--r-sm);
+      background: var(--white); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .feat-icon svg {
+      width: 24px; height: 24px;
+      stroke: var(--navy); stroke-width: 1.8;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .feat-card h3 { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+    .feat-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* ── PRICING ──────────────────────────────── */
+    .pricing { padding: 96px 24px; background: var(--cream); }
+    .pricing-header { margin-bottom: 64px; }
+    .pricing-toggle {
+      display: flex; align-items: center; gap: 10px; margin-top: 20px;
+      font-size: 14px; color: var(--muted);
+    }
+    .toggle-track {
+      width: 44px; height: 24px; background: var(--navy); border-radius: 99px;
+      position: relative; cursor: pointer; transition: background .2s;
+    }
+    .toggle-thumb {
+      position: absolute; top: 3px; left: 3px;
+      width: 18px; height: 18px; background: #fff;
+      border-radius: 50%; transition: transform .2s;
+    }
+    .toggle-track.annual .toggle-thumb { transform: translateX(20px); }
+    .toggle-annual-badge {
+      background: rgba(22,163,74,.12); color: var(--green);
+      font-size: 11px; font-weight: 700; padding: 2px 8px;
+      border-radius: 99px; border: 1px solid rgba(22,163,74,.2);
+    }
+
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; align-items: end;
+    }
+    .price-card {
+      background: var(--white); border-radius: var(--r-md); padding: 36px;
+      border: 1px solid var(--border);
+      transition: box-shadow .25s;
+    }
+    .price-card:hover { box-shadow: 0 12px 40px rgba(26,39,68,.09); }
+    .price-card.featured {
+      background: var(--navy);
+      border-color: var(--navy);
+      transform: scale(1.04);
+      box-shadow: 0 20px 60px rgba(26,39,68,.25);
+    }
+    .price-card.featured:hover { box-shadow: 0 28px 70px rgba(26,39,68,.3); }
+    .price-tag {
+      display: inline-block;
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 99px;
+      margin-bottom: 20px;
+    }
+    .price-tag.standard { background: var(--cream-2); color: var(--muted); }
+    .price-tag.popular  { background: var(--gold); color: var(--navy); }
+    .price-tag.custom   { background: rgba(26,39,68,.08); color: var(--navy); }
+    .price-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 700; color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .price-card.featured .price-name { color: #fff; }
+    .price-lots { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+    .price-card.featured .price-lots { color: rgba(255,255,255,.5); }
+    .price-amount {
+      display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px;
+    }
+    .price-amount-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px; font-weight: 700; color: var(--navy); line-height: 1;
+    }
+    .price-card.featured .price-amount-num { color: var(--gold-lt); }
+    .price-amount-sym { font-size: 22px; font-weight: 700; color: var(--muted); align-self: flex-start; margin-top: 10px; }
+    .price-card.featured .price-amount-sym { color: rgba(255,255,255,.5); }
+    .price-amount-per { font-size: 15px; color: var(--muted); font-weight: 400; }
+    .price-card.featured .price-amount-per { color: rgba(255,255,255,.5); }
+    .price-trial {
+      font-size: 13px; color: var(--green); font-weight: 600; margin-bottom: 28px;
+    }
+    .price-card.featured .price-trial { color: #4ade80; }
+    .price-divider {
+      height: 1px; background: var(--border); margin: 24px 0;
+    }
+    .price-card.featured .price-divider { background: rgba(255,255,255,.12); }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 32px; }
+    .price-features li {
+      display: flex; align-items: flex-start; gap: 9px;
+      font-size: 14px; color: var(--muted); line-height: 1.45;
+    }
+    .price-card.featured .price-features li { color: rgba(255,255,255,.7); }
+    .price-features li .ck { color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .price-card.featured .price-features li .ck { color: var(--gold-lt); }
+    /* Variantes pleine largeur (pricing cards) */
+    .btn-full-navy {
+      display: block; text-align: center;
+      background: var(--navy); color: #fff;
+      padding: 14px 24px; border-radius: 10px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: all .2s;
+    }
+    .btn-full-navy:hover { background: var(--navy-2); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,39,68,.2); }
+    .btn-full-gold {
+      display: block; text-align: center;
+      background: var(--gold); color: var(--navy);
+      padding: 14px 24px; border-radius: 10px;
+      font-size: 15px; font-weight: 700;
+      text-decoration: none; transition: all .2s;
+      box-shadow: 0 4px 16px rgba(196,154,60,.4);
+    }
+    .btn-full-gold:hover { background: var(--gold-lt); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(196,154,60,.5); }
+    .btn-full-outline {
+      display: block; text-align: center;
+      background: transparent; color: var(--navy);
+      padding: 14px 24px; border-radius: 10px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: all .2s;
+    }
+    .btn-full-outline:hover { border-color: var(--navy); background: var(--white); box-shadow: 0 4px 12px rgba(26,39,68,.1); }
+    .price-note {
+      margin-top: 48px; text-align: center;
+      font-size: 14px; color: var(--muted);
+    }
+    .price-note a { color: var(--navy); font-weight: 600; }
+
+    /* ── TESTIMONY ────────────────────────────── */
+    /* ── LEAD MAGNET ──────────────────────────── */
+    :root { --red-soft: #C0392B; --green-soft: #16A34A; }
+    .lead-magnet { padding: 80px 24px; background: var(--navy); }
+    .lm-card {
+      display: grid; grid-template-columns: 1fr 420px; gap: 48px;
+      align-items: start; max-width: 1060px; margin: 0 auto;
+    }
+    .lm-left {}
+    .lm-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+    }
+    .lm-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3.5vw, 32px); font-weight: 700;
+      color: #fff; line-height: 1.22; margin-bottom: 14px;
+    }
+    .lm-sub { font-size: 15px; color: rgba(255,255,255,.6); line-height: 1.65; margin-bottom: 22px; }
+    .lm-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+    .lm-bullets li { display: flex; align-items: center; gap: 9px; font-size: 14px; color: rgba(255,255,255,.75); }
+    .lm-check { color: var(--gold); font-weight: 700; font-size: 14px; flex-shrink: 0; }
+
+    /* Mini preview table */
+    .lm-preview { position: relative; border-radius: 12px; overflow: hidden; }
+    .lm-preview-inner {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px; overflow: hidden;
+    }
+    .lm-preview-row {
+      display: grid; grid-template-columns: 120px 1fr 1fr;
+      padding: 9px 14px; font-size: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      color: rgba(255,255,255,.7);
+    }
+    .lm-preview-row:last-child { border-bottom: none; }
+    .lm-preview-header { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); }
+    .lm-preview-blur {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 18px 14px 10px;
+      background: linear-gradient(to bottom, transparent, rgba(26,39,68,.95) 40%);
+      font-size: 11px; color: var(--gold); font-weight: 600;
+      text-align: center; border-radius: 0 0 12px 12px;
+    }
+
+    /* Form card */
+    .lm-right {}
+    .lm-form-wrap {
+      background: #fff; border-radius: 20px; padding: 36px 32px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+    .lm-form-icon { width: 48px; height: 48px; margin-bottom: 16px; background: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+    .lm-form-icon svg { width: 26px; height: 26px; }
+    .lm-form-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .lm-form-sub { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--light); }
+    .lm-field { margin-bottom: 10px; }
+    .lm-field input {
+      width: 100%; padding: 14px 16px;
+      font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--ink);
+      background: var(--cream); border: 2px solid var(--border); border-radius: 10px;
+      outline: none; transition: border-color .15s, box-shadow .15s;
+    }
+    .lm-field input:focus {
+      border-color: var(--gold); background: #fff;
+      box-shadow: 0 0 0 3px rgba(196,154,60,.15);
+    }
+    .lm-field input.error { border-color: var(--red-soft); }
+    .lm-btn {
+      width: 100%; padding: 15px; border: none; border-radius: 10px; cursor: pointer;
+      background: var(--navy); color: #fff;
+      font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
+      transition: background .15s, transform .1s;
+    }
+    .lm-btn:hover { background: var(--navy-2); transform: translateY(-1px); }
+    .lm-btn:active { transform: translateY(0); }
+    .lm-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+    .lm-privacy { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; }
+
+    /* Success state */
+    .lm-success { text-align: center; padding: 8px 0; }
+    .lm-success-icon { font-size: 40px; margin-bottom: 12px; }
+    .lm-success-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .lm-success-body { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
+    .lm-download-btn {
+      display: inline-block; padding: 11px 22px;
+      background: var(--gold); color: #fff; font-weight: 700; font-size: 14px;
+      border-radius: 8px; text-decoration: none; transition: background .15s;
+    }
+    .lm-download-btn:hover { background: #b08930; }
+
+    @media (max-width: 860px) {
+      .lm-card { grid-template-columns: 1fr; gap: 32px; }
+      .lm-preview { display: none; }
+    }
+
+    .testimony { padding: 96px 24px; background: var(--white); }
+    .testimony-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 64px;
+    }
+    .testi-card {
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 32px;
+      transition: box-shadow .2s;
+    }
+    .testi-card:hover { box-shadow: 0 8px 28px rgba(26,39,68,.07); }
+    .testi-stars { color: var(--gold); font-size: 16px; margin-bottom: 16px; letter-spacing: 2px; }
+    .testi-text {
+      font-size: 15px; color: var(--ink); line-height: 1.7;
+      margin-bottom: 24px; font-style: italic;
+    }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--navy); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px; flex-shrink: 0;
+    }
+    .testi-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+    .testi-role { font-size: 12px; color: var(--muted); }
+
+    /* ── SECURITY ─────────────────────────────── */
+    .security { padding: 96px 24px; background: var(--navy); }
+    .security .s-eyebrow { color: var(--gold-lt); }
+    .security .s-title { color: #fff; }
+    .security .s-sub { color: rgba(255,255,255,.55); }
+    .security-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 20px; margin-top: 64px;
+    }
+    .sec-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 16px; padding: 28px;
+      transition: background .2s;
+    }
+    .sec-card:hover { background: rgba(255,255,255,.08); }
+    .sec-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(196,154,60,.12); border: 1px solid rgba(196,154,60,.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .sec-icon svg {
+      width: 22px; height: 22px;
+      stroke: var(--gold-lt); stroke-width: 1.8;
+      fill: none; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .sec-card h3 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .sec-card p { font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.6; }
+
+    /* ── FINAL CTA ────────────────────────────── */
+    .final-cta {
+      padding: 120px 24px;
+      background: var(--cream);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(196,154,60,.08) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .final-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 700; color: var(--navy);
+      letter-spacing: -.4px; margin-bottom: 20px;
+      position: relative;
+    }
+    .final-cta p {
+      font-size: 18px; color: var(--muted); font-weight: 300;
+      margin-bottom: 48px; max-width: 540px; margin-left: auto; margin-right: auto;
+      position: relative;
+    }
+    .final-cta-actions { position: relative; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-lg-gold {
+      background: var(--gold); color: var(--navy);
+      padding: 17px 36px; border-radius: 12px;
+      font-size: 17px; font-weight: 700;
+      text-decoration: none; transition: all .2s;
+      box-shadow: 0 6px 28px rgba(196,154,60,.4);
+      display: inline-block;
+    }
+    .btn-lg-gold:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 10px 36px rgba(196,154,60,.5); }
+    .btn-lg-outline {
+      background: transparent; color: var(--navy);
+      padding: 16px 32px; border-radius: 12px;
+      font-size: 17px; font-weight: 600;
+      text-decoration: none;
+      border: 2px solid var(--border);
+      transition: all .2s;
+      display: inline-block;
+    }
+    .btn-lg-outline:hover { border-color: var(--navy); background: var(--white); }
+    .final-guarantee {
+      margin-top: 24px; font-size: 14px; color: var(--muted);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .final-guarantee::before { content: '🔒'; font-size: 14px; }
+
+    /* ── FOOTER ───────────────────────────────── */
+    footer {
+      background: var(--navy);
+      padding: 48px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand { }
+    .footer-logo-row {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+    }
+    .footer-logo-mark {
+      width: 32px; height: 32px; background: var(--gold); border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .footer-logo-mark img { width: 22px; height: 22px; object-fit: contain; }
+    .footer-logo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-weight: 700; color: #fff;
+    }
+    .footer-tagline { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.65; }
+    .footer-col-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; color: rgba(255,255,255,.6); margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { color: rgba(255,255,255,.55); text-decoration: none; font-size: 14px; transition: color .2s; }
+    .footer-col ul a:hover { color: #fff; }
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-legal { font-size: 13px; color: rgba(255,255,255,.5); }
+
+    /* ── SCROLL REVEAL ────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s, transform .7s; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── HAMBURGER ────────────────────────────── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; justify-content: center; gap: 5px;
+      width: 36px; height: 36px; background: none; border: none;
+      cursor: pointer; padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; height: 2px; background: #fff;
+      border-radius: 2px; transition: transform .25s, opacity .25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed; top: 64px; left: 0; right: 0;
+      background: rgba(26,39,68,.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      z-index: 199;
+      padding: 20px 24px 28px;
+      padding-left: max(24px, env(safe-area-inset-left));
+      padding-right: max(24px, env(safe-area-inset-right));
+      padding-bottom: max(28px, env(safe-area-inset-bottom));
+      flex-direction: column; gap: 4px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: rgba(255,255,255,.8); text-decoration: none;
+      font-size: 16px; font-weight: 500;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      transition: color .2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: #fff; }
+    .mobile-menu .mobile-cta {
+      margin-top: 8px;
+      background: var(--gold); color: var(--navy) !important;
+      text-align: center; padding: 14px 24px;
+      border-radius: 10px; font-weight: 700 !important;
+      border-bottom: none !important;
+    }
+    .mobile-menu .mobile-cta:hover { background: var(--gold-lt) !important; }
+
+    /* ── RESPONSIVE ───────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: none; }
+      .problem-grid { grid-template-columns: 1fr; gap: 40px; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; gap: 20px; }
+      .price-card.featured { transform: none; }
+      .testimony-grid { grid-template-columns: 1fr; }
+      .security-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      /* Padding des sections réduit */
+      .problem, .features, .pricing, .testimony, .security { padding: 56px 20px; }
+      .faq { padding: 56px 0; }
+      .final-cta { padding: 72px 20px; }
+
+      /* Hero */
+      .hero { padding: 96px 20px 56px; }
+      .hero h1 { font-size: clamp(32px, 8vw, 44px); }
+      .hero-sub { font-size: 15px; }
+      .hero-cta-group { flex-direction: column; }
+      .hero-cta-group a { width: 100%; text-align: center; }
+      .btn-gold, .btn-outline-white { padding: 14px 20px; font-size: 14px; }
+
+      /* Proof bar : 2 colonnes */
+      .proof-bar-inner {
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 12px 16px; justify-items: start;
+      }
+      .proof-bar-inner .proof-item:last-child { grid-column: 1 / -1; justify-self: center; }
+
+      /* Solution box */
+      .solution-box { padding: 28px 24px; }
+      .solution-saving { flex-wrap: wrap; gap: 20px; }
+      .saving-stat { min-width: 80px; }
+
+      /* Features, security */
+      .features-grid { grid-template-columns: 1fr; }
+      .security-grid { grid-template-columns: 1fr; }
+
+      /* Footer */
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+
+      /* Prix */
+      .price-card { padding: 24px 20px; }
+      .price-amount-num { font-size: 42px; }
+
+      /* Témoignages */
+      .testi-card { padding: 24px 20px; }
+
+      /* FAQ */
+      .faq-list { margin-top: 32px; }
+      .faq-q { font-size: 15px; padding: 16px 20px; }
+      .faq-a-inner { padding: 0 20px 16px; font-size: 14px; }
+    }
+
+    /* ── FAQ ──────────────────────────────────── */
+    .faq { background: var(--cream-2); padding: 80px 0; }
+    .faq-list { max-width: 720px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+    .faq-q {
+      width: 100%; text-align: left; background: none; border: none;
+      padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600;
+      color: var(--navy); line-height: 1.4; transition: color .2s;
+    }
+    .faq-q:hover { color: var(--gold-text); }
+    .faq-icon { flex-shrink: 0; font-size: 22px; color: var(--gold); transition: transform .25s; line-height: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-item.open .faq-a { max-height: 500px; }
+    .faq-a-inner { padding: 0 24px 20px; color: var(--muted); font-size: 15px; line-height: 1.75; }
+    .faq-a-inner a { color: var(--gold-text); text-decoration: none; }
+    .faq-a-inner a:hover { text-decoration: underline; color: var(--navy); }
+
+    /* Newsletter strip */
+    .newsletter-strip { background: var(--navy); padding: 72px 24px; }
+    .newsletter-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .newsletter-label { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .newsletter-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 14px; }
+    .newsletter-sub { font-size: 15px; color: rgba(255,255,255,.65); line-height: 1.7; }
+    .newsletter-input-row { display: flex; gap: 0; border-radius: 10px; overflow: hidden; }
+    .newsletter-input { flex: 1; padding: 14px 16px; font-size: 15px; border: none; outline: none; background: #fff; }
+    .newsletter-btn { padding: 14px 20px; background: var(--gold); color: var(--navy); font-size: 14px; font-weight: 700; border: none; cursor: pointer; white-space: nowrap; transition: opacity .2s; }
+    .newsletter-btn:hover { opacity: .85; }
+    .newsletter-btn:disabled { opacity: .6; cursor: not-allowed; }
+    .newsletter-legal { font-size: 12px; color: rgba(255,255,255,.6); margin-top: 10px; }
+    .newsletter-success { display: flex; align-items: center; gap: 10px; color: var(--gold); font-weight: 600; font-size: 15px; margin-top: 12px; }
+    @media(max-width: 720px) {
+      .newsletter-inner { grid-template-columns: 1fr; gap: 32px; }
+      .newsletter-title { font-size: 22px; }
+      .newsletter-input-row { flex-direction: column; border-radius: 0; overflow: visible; gap: 8px; }
+      .newsletter-input, .newsletter-btn { border-radius: 8px; width: 100%; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SimpleSyndic",
+    "url": "https://simplesyndic.fr",
+    "description": "Logiciel de gestion de copropriété pour syndic bénévole et coopératif. Comptabilité, assemblées générales, gestion des charges, assistant IA.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Essentiel",
+        "price": "59",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "59",
+          "priceCurrency": "EUR",
+          "billingDuration": "P1M"
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Confort",
+        "price": "89",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "89",
+          "priceCurrency": "EUR",
+          "billingDuration": "P1M"
+        }
+      }
+    ],
+    "provider": {
+      "@type": "Organization",
+      "name": "SimpleSyndic",
+      "url": "https://simplesyndic.fr"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce que SimpleSyndic ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SimpleSyndic est un logiciel de gestion de copropriété conçu pour les syndics bénévoles et coopératifs. Il couvre la comptabilité, les assemblées générales, la gestion des charges et intègre un assistant IA pour vous accompagner dans vos démarches."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien coûte SimpleSyndic ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SimpleSyndic est disponible à partir de 59 €/mois (formule Essentiel). La formule Confort est à 89 €/mois. Les deux formules incluent un essai gratuit de 7 jours sans engagement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Le syndic bénévole est-il légal en France ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, le syndic bénévole ou non-professionnel est totalement légal en France depuis la loi ALUR de 2014. Tout copropriétaire peut être élu syndic lors d'une assemblée générale, à condition de résider ou de posséder un lot dans la copropriété."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "SimpleSyndic convient-il à ma taille de copropriété ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SimpleSyndic s'adapte aux copropriétés de 2 à 100 lots. Il est particulièrement efficace pour les petites et moyennes copropriétés (5 à 50 lots) qui souhaitent se passer d'un syndic professionnel coûteux."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Peut-on migrer depuis un syndic professionnel vers SimpleSyndic ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. Notre équipe accompagne la transition : récupération des données comptables, paramétrage de la copropriété, formation du nouveau syndic bénévole. Le changement de syndic se vote en assemblée générale à la majorité de l'article 25."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Faut-il des compétences comptables pour utiliser SimpleSyndic ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non. SimpleSyndic est conçu pour des non-comptables. La saisie des dépenses, la répartition des charges et la clôture d'exercice sont guidées pas à pas. L'assistant IA répond à vos questions en temps réel."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "SimpleSyndic remplace-t-il vraiment un syndic professionnel ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pour la grande majorité des copropriétés de moins de 50 lots, oui. SimpleSyndic couvre toutes les obligations légales : tenue de la comptabilité, convocation et procès-verbal d'AG, gestion du fonds de travaux, correspondances avec les copropriétaires."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de temps prend la gestion avec SimpleSyndic ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En moyenne, nos utilisateurs consacrent 1 à 2 heures par mois à la gestion courante de leur copropriété. La préparation d'une AG prend environ 3 heures avec SimpleSyndic, contre une journée entière sans outil dédié."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Existe-t-il un logiciel de copropriété gratuit ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Il n'existe pas de logiciel de gestion de copropriété entièrement gratuit et complet en France. Les outils gratuits (tableurs, modèles Word) ne couvrent pas les obligations légales : comptabilité normalisée, convocations conformes, gestion du fonds de travaux. SimpleSyndic propose un essai gratuit de 7 jours sans engagement ni carte bancaire, pour tester toutes les fonctionnalités avant de s'abonner à partir de 59 €/mois — soit environ 3 € par lot pour une copropriété de 20 lots."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quel logiciel choisir pour gérer une copropriété en syndic bénévole ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SimpleSyndic est le logiciel de gestion de copropriété conçu spécifiquement pour les syndics bénévoles et coopératifs. Contrairement aux logiciels destinés aux professionnels (complexes et onéreux), SimpleSyndic guide le président du conseil syndical pas à pas : comptabilité normalisée, assemblées générales, charges, fonds de travaux, relances — avec un assistant IA disponible 24h/24 pour répondre aux questions juridiques."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="./Logiciel gestion copropriété syndic bénévole _ SimpleSyndic_files/js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-71FFJ14KPH', {
+      traffic_type: (location.hostname === 'localhost' || location.hostname === '127.0.0.1') ? 'internal' : undefined
+    });
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="https://simplesyndic.fr/" class="nav-logo">
+        <div class="nav-logo-mark"><img src="./Logiciel gestion copropriété syndic bénévole _ SimpleSyndic_files/logo.svg" alt="SimpleSyndic"></div>
+        <span class="nav-logo-name">SimpleSyndic</span>
+      </a>
+      <div class="nav-links">
+        <a href="https://simplesyndic.fr/#fonctionnalites">Fonctionnalités</a>
+        <a href="https://simplesyndic.fr/#tarifs">Tarifs</a>
+        <a href="https://simplesyndic.fr/#securite">Sécurité</a>
+        <a href="https://simplesyndic.fr/blog">Blog</a>
+        <a href="https://simplesyndic.fr/admin" style="color:rgba(255,255,255,.75);font-size:14px;text-decoration:none;margin-right:4px;transition:color .2s" onmouseover="this.style.color=&#39;#fff&#39;" onmouseout="this.style.color=&#39;rgba(255,255,255,.75)&#39;">Se connecter</a>
+        <a href="https://simplesyndic.fr/register" class="nav-cta">7 jours gratuits →</a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="https://simplesyndic.fr/#fonctionnalites" onclick="toggleMenu()">Fonctionnalités</a>
+    <a href="https://simplesyndic.fr/#tarifs" onclick="toggleMenu()">Tarifs</a>
+    <a href="https://simplesyndic.fr/#securite" onclick="toggleMenu()">Sécurité</a>
+    <a href="https://simplesyndic.fr/blog">Blog</a>
+    <a href="https://simplesyndic.fr/admin">Se connecter</a>
+    <a href="https://simplesyndic.fr/register" class="mobile-cta">Créer mon compte — 7 jours gratuits →</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ HERO -->
+  <main>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid">
+      <div>
+        <div class="hero-pill">
+          <span class="hero-pill-dot"></span>
+          Nouveau — Essai gratuit 7 jours
+        </div>
+        <h1>Le logiciel de gestion de copropriété<br>pour <em>syndic bénévole.</em></h1>
+        <p class="hero-sub">
+          Comptabilité loi SRU, appels de fonds, convocations d'AG, relances — tout automatisé. Gérez votre immeuble aussi bien qu'un syndic professionnel, pour 3 € par lot et par mois.
+        </p>
+        <div class="hero-cta-group">
+          <a href="https://simplesyndic.fr/register" class="btn-gold">Essayer gratuitement — 7 jours sans carte</a>
+          <a href="https://simplesyndic.fr/#fonctionnalites" class="btn-outline-white">Voir comment ça marche</a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-icons">
+            <span>M</span><span>S</span><span>P</span><span>A</span>
+          </div>
+          <strong>+50 lots</strong> gérés en autonomie — sans carte bancaire · sans engagement
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <span class="hero-card-title">Tableau de bord</span>
+            <span class="hero-card-badge">● En ligne</span>
+          </div>
+          <div class="hero-stat-row">
+            <div class="hero-stat-box">
+              <div class="hero-stat-box-val">−68%</div>
+              <div class="hero-stat-box-lbl">Sur les honoraires syndic</div>
+            </div>
+            <div class="hero-stat-box">
+              <div class="hero-stat-box-val">48 lots</div>
+              <div class="hero-stat-box-lbl">Gérés en autonomie</div>
+            </div>
+          </div>
+          <div class="hero-chat-preview">
+            <div class="hcp-msg right">
+              <div class="hcp-avatar user">P</div>
+              <div class="hcp-bubble user">Qui a des charges impayées ce mois ?</div>
+            </div>
+            <div class="hcp-msg">
+              <div class="hcp-avatar bot">🤖</div>
+              <div class="hcp-bubble bot">3 copropriétaires — total 2 840 €. Relances automatiques envoyées.</div>
+            </div>
+            <div class="hcp-msg right">
+              <div class="hcp-avatar user">P</div>
+              <div class="hcp-bubble user">Génère la convocation AG pour le 15 avril</div>
+            </div>
+            <div class="hcp-msg">
+              <div class="hcp-avatar bot">🤖</div>
+              <div class="hcp-bubble bot">Convocation prête. 48 emails envoyés. PJ : ordre du jour + rapport.</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-float hero-float-left">
+          <span class="hero-float-icon">💰</span>
+          <div>
+            <div class="hero-float-text">Économie moyenne</div>
+            <div class="hero-float-sub">3 200 €/an vs syndic pro</div>
+          </div>
+        </div>
+        <div class="hero-float hero-float-right">
+          <span class="hero-float-icon">⚡</span>
+          <div>
+            <div class="hero-float-text">Setup en 48h</div>
+            <div class="hero-float-sub">Migration prise en charge</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ PROOF BAR -->
+  <div class="proof-bar">
+    <div class="proof-bar-inner">
+      <div class="proof-item">
+        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        Conforme loi du 10 juillet 1965
+      </div>
+      <div class="proof-item">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0110 0v4"></path></svg>
+        Données hébergées en France
+      </div>
+      <div class="proof-item">
+        <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+        Comptabilité certifiée
+      </div>
+      <div class="proof-item">
+        <svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+        Assistant IA intégré
+      </div>
+      <div class="proof-item">
+        <svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+        Support humain inclus
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ PROBLEM -->
+  <section class="problem">
+    <div class="container">
+      <div>
+        <div class="s-eyebrow">Le problème</div>
+        <h2 class="s-title">Votre syndic vous coûte<br>trop cher pour ce qu'il fait.</h2>
+        <p class="s-sub">Les honoraires explosent, la réactivité disparaît. Il existe une alternative légale, plus économique — et SimpleSyndic la rend accessible à tous.</p>
+      </div>
+      <div class="problem-grid reveal visible">
+        <div class="problem-list">
+          <div class="problem-item">
+            <div class="problem-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path></svg>
+            </div>
+            <div class="problem-item-text">
+              <h3>Honoraires opaques en hausse constante</h3>
+              <p>4 000 à 8 000 €/an pour un immeuble standard. Avec des frais "extra" qui s'accumulent à chaque intervention.</p>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="problem-item-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+            </div>
+            <div class="problem-item-text">
+              <h3>Réactivité inexistante</h3>
+              <p>Une fuite, un ascenseur en panne — et vous attendez des semaines une réponse par email.</p>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="problem-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"></path></svg>
+            </div>
+            <div class="problem-item-text">
+              <h3>Comptes illisibles, AG inutiles</h3>
+              <p>Des documents complexes conçus pour décourager les questions plutôt que pour informer les copropriétaires.</p>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="problem-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M10.3 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v6.7M17 22l5-5-5-5M22 17H10"></path></svg>
+            </div>
+            <div class="problem-item-text">
+              <h3>Changer de syndic = un parcours du combattant</h3>
+              <p>Vote en AG, délai de préavis, récupération des archives… Personne ne vous guide dans la transition.</p>
+            </div>
+          </div>
+        </div>
+        <div class="solution-box">
+          <h3>La solution : le syndic coopératif avec SimpleSyndic</h3>
+          <ul class="solution-list">
+            <li>Vous gérez votre immeuble vous-même, avec nos outils</li>
+            <li>L'IA répond à toutes vos questions en langage naturel</li>
+            <li>La comptabilité, les AG et les relances sont automatisées</li>
+            <li>Nous prenons en charge votre transition depuis votre ancien syndic</li>
+            <li>Un juriste disponible par téléphone pour les cas complexes</li>
+          </ul>
+          <div class="solution-saving">
+            <div class="saving-stat">
+              <div class="saving-stat-num">−70%</div>
+              <div class="saving-stat-lbl">sur vos charges</div>
+            </div>
+            <div class="saving-stat">
+              <div class="saving-stat-num">48h</div>
+              <div class="saving-stat-lbl">pour être opérationnel</div>
+            </div>
+            <div class="saving-stat">
+              <div class="saving-stat-num">0€</div>
+              <div class="saving-stat-lbl">frais de migration</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ FEATURES -->
+  <section class="features" id="fonctionnalites">
+    <div class="container">
+      <div class="features-header reveal visible">
+        <div class="s-eyebrow">Fonctionnalités</div>
+        <h2 class="s-title">Tout ce dont un syndic<br>a besoin. Dans un seul outil.</h2>
+        <p class="s-sub">De la comptabilité à la gestion des travaux, notre logiciel de gestion de copropriété pour syndic bénévole couvre l'intégralité des obligations légales — avec un assistant IA pour vous guider à chaque étape.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feat-card reveal visible">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg></div>
+          <h3>Comptabilité &amp; trésorerie</h3>
+          <p>Plan comptable copropriété, appels de fonds, réconciliation bancaire et clôture d'exercice en quelques clics.</p>
+        </div>
+        <div class="feat-card reveal visible">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg></div>
+          <h3>Assemblées générales</h3>
+          <p>Convocations automatiques, calcul des majorités (art. 24/25/26), PV généré par l'IA. Aucune erreur de procédure.</p>
+        </div>
+        <div class="feat-card reveal visible">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 012 2v2a2 2 0 01-2 2 2 2 0 01-2-2V4a2 2 0 012-2z"></path><path d="M12 8v4M8 12H4a2 2 0 00-2 2v4a2 2 0 002 2h16a2 2 0 002-2v-4a2 2 0 00-2-2h-4"></path><circle cx="8" cy="18" r="1"></circle><circle cx="16" cy="18" r="1"></circle></svg></div>
+          <h3>Assistant IA 24h/24</h3>
+          <p>Posez n'importe quelle question sur votre copropriété en langage naturel. L'IA lit votre base de données en temps réel.</p>
+        </div>
+        <div class="feat-card reveal visible">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"></path></svg></div>
+          <h3>Tickets &amp; travaux</h3>
+          <p>Suivi des incidents, gestion des devis, carnet d'entretien, recherche d'artisans RGE géolocalisés.</p>
+        </div>
+        <div class="feat-card reveal visible">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M22 17H2a3 3 0 003-3V9a7 7 0 0114 0v5a3 3 0 003 3zm-8.27 4a2 2 0 01-3.46 0"></path></svg></div>
+          <h3>Relances automatiques</h3>
+          <p>Détection des impayés, envoi de relances graduelles (amiable → mise en demeure) sans intervention manuelle.</p>
+        </div>
+        <div class="feat-card reveal visible">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg></div>
+          <h3>Espace copropriétaire</h3>
+          <p>Application mobile pour chaque copropriétaire : solde, historique, tickets, documents — accessible sans installation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ PRICING -->
+  <section class="pricing" id="tarifs">
+    <div class="container">
+      <div class="pricing-header reveal visible">
+        <div class="s-eyebrow">Tarifs transparents</div>
+        <h2 class="s-title">Un prix fixe.<br>Pas de surprise.</h2>
+        <p class="s-sub">Contrairement à un syndic professionnel, notre tarif ne change pas selon la surface ou le nombre d'interventions. Un forfait mensuel, tout inclus.</p>
+        <div class="pricing-toggle">
+          <span>Mensuel</span>
+          <div class="toggle-track" id="billingToggle" onclick="toggleBilling()">
+            <div class="toggle-thumb"></div>
+          </div>
+          <span>Annuel</span>
+          <span class="toggle-annual-badge">−2 mois offerts</span>
+        </div>
+      </div>
+
+      <div class="pricing-grid reveal visible">
+
+        <!-- Essentiel -->
+        <div class="price-card">
+          <span class="price-tag standard">Essentiel</span>
+          <div class="price-name">Essentiel</div>
+          <div class="price-lots">Jusqu'à 15 lots</div>
+          <div class="price-amount">
+            <span class="price-amount-sym">€</span>
+            <span class="price-amount-num" data-monthly="59" data-annual="49">59</span>
+            <span class="price-amount-per">/mois</span>
+          </div>
+          <div class="price-trial">✓ 7 jours d'essai gratuits</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li><span class="ck">✓</span> Comptabilité complète</li>
+            <li><span class="ck">✓</span> Gestion des copropriétaires</li>
+            <li><span class="ck">✓</span> Convocations &amp; PV d'AG</li>
+            <li><span class="ck">✓</span> Relances impayés</li>
+            <li><span class="ck">✓</span> Espace copropriétaire mobile</li>
+            <li><span class="ck">✓</span> Support par email</li>
+          </ul>
+          <a href="https://simplesyndic.fr/register" class="btn-full-navy">Créer mon compte gratuitement</a>
+        </div>
+
+        <!-- Confort — featured -->
+        <div class="price-card featured">
+          <span class="price-tag popular">⭐ Populaire</span>
+          <div class="price-name">Confort</div>
+          <div class="price-lots">16 à 30 lots</div>
+          <div class="price-amount">
+            <span class="price-amount-sym">€</span>
+            <span class="price-amount-num" data-monthly="89" data-annual="74">89</span>
+            <span class="price-amount-per">/mois</span>
+          </div>
+          <div class="price-trial">✓ 7 jours d'essai gratuits</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li><span class="ck">✓</span> Tout l'Essentiel</li>
+            <li><span class="ck">✓</span> Assistant IA illimité</li>
+            <li><span class="ck">✓</span> Gestion appels d'offres</li>
+            <li><span class="ck">✓</span> Carnet d'entretien complet</li>
+            <li><span class="ck">✓</span> Rapports financiers avancés</li>
+            <li><span class="ck">✓</span> Support téléphonique</li>
+          </ul>
+          <a href="https://simplesyndic.fr/register" class="btn-full-gold">Créer mon compte gratuitement</a>
+        </div>
+
+        <!-- Sur-mesure -->
+        <div class="price-card">
+          <span class="price-tag custom">Sur-mesure</span>
+          <div class="price-name">Sur-mesure</div>
+          <div class="price-lots">Plus de 30 lots</div>
+          <div class="price-amount" style="align-items:center;gap:0">
+            <span class="price-amount-num" style="font-size:36px;color:var(--navy)">Sur devis</span>
+          </div>
+          <div class="price-trial" style="color:var(--muted)">Migration &amp; formation incluses</div>
+          <div class="price-divider"></div>
+          <ul class="price-features">
+            <li><span class="ck">✓</span> Tout le Confort</li>
+            <li><span class="ck">✓</span> Multi-immeubles</li>
+            <li><span class="ck">✓</span> Compte bancaire dédié</li>
+            <li><span class="ck">✓</span> Juriste attitré</li>
+            <li><span class="ck">✓</span> Formation sur site</li>
+            <li><span class="ck">✓</span> SLA prioritaire 4h</li>
+          </ul>
+          <a href="mailto:contact@simplesyndic.fr" class="btn-full-outline">Nous contacter →</a>
+        </div>
+
+      </div>
+      <p class="price-note">
+        Pas de frais de résiliation · Pas de frais cachés · <a href="https://simplesyndic.fr/blog">En savoir plus sur le syndic coopératif</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ LEAD MAGNET -->
+  <section class="lead-magnet" id="simulateur">
+    <div class="container">
+      <div class="lm-card reveal visible">
+        <div class="lm-left">
+          <div class="lm-eyebrow">Outil gratuit</div>
+          <h2 class="lm-title">Simulateur d'Économies : Calculez combien votre immeuble perd chaque année.</h2>
+          <p class="lm-sub">Entrez vos chiffres réels — le calcul est immédiat. Ce n'est pas une promesse, c'est une mathématique.</p>
+          <ul class="lm-bullets">
+            <li><span class="lm-check">✓</span> Vos honoraires de syndic actuels vs 708 €/an</li>
+            <li><span class="lm-check">✓</span> L'économie annuelle exacte pour votre immeuble</li>
+            <li><span class="lm-check">✓</span> Le gain par appartement et par voisin</li>
+          </ul>
+          <div class="lm-preview">
+            <div class="lm-preview-inner">
+              <div class="lm-preview-row lm-preview-header">
+                <span>Poste</span><span>Votre syndic actuel</span><span style="color:#16A34A">SimpleSyndic</span>
+              </div>
+              <div class="lm-preview-row">
+                <span>💰 Honoraires</span><span style="color:#C0392B">1 800 €/an</span><span style="font-weight:700;color:#16A34A">708 €/an</span>
+              </div>
+              <div class="lm-preview-row">
+                <span>📋 Frais annexes</span><span style="color:#C0392B">+ 350 €</span><span style="font-weight:700;color:#16A34A">0 €</span>
+              </div>
+              <div class="lm-preview-row">
+                <span>📈 Économie/an</span><span></span><span style="font-weight:700;color:#16A34A">1 442 €</span>
+              </div>
+            </div>
+            <div class="lm-preview-blur">Exemple — Calculez avec vos chiffres →</div>
+          </div>
+        </div>
+        <div class="lm-right">
+          <div class="lm-form-wrap">
+            <div class="lm-form-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#C49A3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                <polyline points="16 7 22 7 22 13"></polyline>
+              </svg>
+            </div>
+            <div class="lm-form-title">Recevez le Simulateur gratuitement</div>
+            <div class="lm-form-sub">Entrez votre email — vous recevez le lien vers le simulateur interactif en 30 secondes.</div>
+            <form class="lm-form" id="lmForm" novalidate="">
+              <div class="lm-field">
+                <input type="email" id="lmEmail" placeholder="votre@email.fr" autocomplete="email" required="">
+              </div>
+              <button type="submit" class="lm-btn" id="lmBtn">
+                <span id="lmBtnText">Accéder au simulateur →</span>
+                <span id="lmBtnSpinner" style="display:none">Envoi…</span>
+              </button>
+              <div class="lm-privacy">🔒 Aucun spam. Désabonnement en 1 clic.</div>
+            </form>
+            <div class="lm-success" id="lmSuccess" style="display:none">
+              <div class="lm-success-icon">✅</div>
+              <div class="lm-success-title">C'est parti !</div>
+              <div class="lm-success-body">Vérifiez votre boîte mail — le Simulateur d'Économies est en route. Vérifiez vos spams si vous ne le voyez pas dans 2 minutes.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ TESTIMONY -->
+  <section class="testimony">
+    <div class="container">
+      <div class="reveal visible" style="text-align:center">
+        <div class="s-eyebrow">Témoignages</div>
+        <h2 class="s-title">Ils ont franchi le pas</h2>
+        <p class="s-sub" style="margin:0 auto">Des présidents de conseil syndical comme vous.</p>
+      </div>
+      <div class="testimony-grid reveal visible">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Notre ancien syndic nous coûtait 5 800 €/an. Avec SimpleSyndic, on paie 89 €/mois et on gère tout nous-mêmes. La migration a pris 48h et le support était disponible à chaque étape."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">ML</div>
+            <div>
+              <div class="testi-name">Marie-Laure T.</div>
+              <div class="testi-role">Présidente CS — 24 lots, Lyon</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Ce que j'apprécie le plus, c'est l'IA. Je pose mes questions en français, elle me répond avec les chiffres exacts de notre copropriété. C'est comme avoir un expert comptable disponible 24h/24."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">JP</div>
+            <div>
+              <div class="testi-name">Jean-Pierre R.</div>
+              <div class="testi-role">Président CS — 12 lots, Bordeaux</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"L'AG de juin était la première que j'organisais seule. Convocations envoyées en 3 clics, PV généré automatiquement. Zéro erreur de procédure. Je ne retournerai jamais à un syndic classique."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SC</div>
+            <div>
+              <div class="testi-name">Sophie C.</div>
+              <div class="testi-role">Présidente CS — 18 lots, Nantes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ SECURITY -->
+  <section class="security" id="securite">
+    <div class="container">
+      <div class="reveal">
+        <div class="s-eyebrow">Sécurité &amp; Conformité</div>
+        <h2 class="s-title">Conforme. Sécurisé.<br>Certifié.</h2>
+        <p class="s-sub">La gestion d'une copropriété engage votre responsabilité juridique et financière. SimpleSyndic est conçu pour vous protéger.</p>
+      </div>
+      <div class="security-grid reveal">
+        <div class="sec-card">
+          <div class="sec-icon"><svg viewBox="0 0 24 24"><path d="M12 3L3 7l9 4 9-4-9-4zM3 17l9 4 9-4M3 12l9 4 9-4"></path></svg></div>
+          <h3>Loi du 10 juillet 1965</h3>
+          <p>Toutes les procédures respectent la réglementation en vigueur : délais, majorités, obligations légales.</p>
+        </div>
+        <div class="sec-card">
+          <div class="sec-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"></path></svg></div>
+          <h3>Compte bancaire séparé</h3>
+          <p>Les fonds du syndicat sont sur un compte dédié, séparé de toute autre entité. Transparence totale.</p>
+        </div>
+        <div class="sec-card">
+          <div class="sec-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0110 0v4"></path></svg></div>
+          <h3>Données hébergées en France</h3>
+          <p>Serveurs OVHcloud (Paris). Chiffrement AES-256, sauvegardes quotidiennes, RGPD natif.</p>
+        </div>
+        <div class="sec-card">
+          <div class="sec-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+          <h3>Juriste disponible</h3>
+          <p>Pour les offres Confort et Sur-mesure, un juriste spécialisé copropriété est disponible par téléphone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div style="text-align:center">
+        <p style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:12px">Questions fréquentes</p>
+        <h2 style="font-family:&#39;Playfair Display&#39;,serif;font-size:clamp(28px,4vw,40px);color:var(--navy);line-height:1.2">Tout ce que vous voulez savoir sur SimpleSyndic</h2>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            Qu'est-ce que SimpleSyndic ?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              SimpleSyndic est un logiciel de gestion de copropriété conçu pour les <strong>syndics bénévoles et coopératifs</strong>. Il couvre la comptabilité, les assemblées générales, la gestion des charges et intègre un <strong>assistant IA</strong> pour vous accompagner dans toutes vos démarches.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            Combien coûte SimpleSyndic ?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              SimpleSyndic est disponible à partir de <strong>59 €/mois</strong> (formule Essentiel). La formule Confort est à 89 €/mois. Les deux formules incluent un essai gratuit de 7 jours sans engagement et sans carte bancaire. <a href="https://simplesyndic.fr/tarifs">Voir le détail des tarifs →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            Le syndic bénévole est-il légal en France ?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Oui, totalement. Le syndic bénévole ou non-professionnel est légal depuis la <strong>loi ALUR de 2014</strong>. Tout copropriétaire peut être élu syndic lors d'une assemblée générale. Découvrez notre comparatif <a href="https://simplesyndic.fr/blog/syndic-benevole-vs-syndic-professionnel">syndic bénévole vs syndic professionnel</a>.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            SimpleSyndic convient-il à ma taille de copropriété ?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              SimpleSyndic s'adapte aux copropriétés de <strong>2 à 100 lots</strong>. Il est particulièrement efficace pour les petites et moyennes copropriétés (5 à 50 lots) qui souhaitent se passer d'un syndic professionnel coûteux.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            Peut-on migrer depuis un syndic professionnel vers SimpleSyndic ?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Oui. Notre équipe accompagne la transition : récupération des données comptables, paramétrage de la copropriété, formation du nouveau syndic bénévole. Le changement se vote en AG à la majorité de l'article 25. <a href="https://simplesyndic.fr/blog/comment-changer-de-syndic">Guide complet : changer de syndic →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            Faut-il des compétences comptables pour utiliser SimpleSyndic ?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Non. SimpleSyndic est conçu pour des <strong>non-comptables</strong>. La saisie des dépenses, la répartition des charges et la clôture d'exercice sont guidées pas à pas. L'assistant IA répond à vos questions en temps réel.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            SimpleSyndic remplace-t-il vraiment un syndic professionnel ?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Pour la grande majorité des copropriétés de moins de 50 lots, oui. SimpleSyndic couvre toutes les obligations légales : comptabilité, convocation et PV d'AG, <a href="https://simplesyndic.fr/blog/fonds-de-travaux-copropriete">gestion du fonds de travaux</a>, correspondances avec les copropriétaires.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            Combien de temps prend la gestion avec SimpleSyndic ?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              En moyenne, nos utilisateurs consacrent <strong>1 à 2 heures par mois</strong> à la gestion courante. La préparation d'une AG prend environ 3 heures avec SimpleSyndic, contre une journée entière sans outil dédié.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            Existe-t-il un logiciel de copropriété gratuit ?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Il n'existe pas de logiciel de gestion de copropriété entièrement gratuit et complet en France. Les outils gratuits (tableurs, modèles Word) ne couvrent pas les obligations légales : comptabilité normalisée, convocations conformes, gestion du fonds de travaux. SimpleSyndic propose un <strong>essai gratuit de 7 jours</strong> sans engagement ni carte bancaire — à partir de 59 €/mois, soit environ <strong>3 € par lot</strong> pour une copropriété de 20 lots. <a href="https://simplesyndic.fr/register">Démarrer l'essai gratuit →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+            Quel logiciel choisir pour gérer une copropriété en syndic bénévole ?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              SimpleSyndic est le <strong>logiciel de gestion de copropriété</strong> conçu spécifiquement pour les syndics bénévoles et coopératifs. Contrairement aux logiciels destinés aux professionnels (complexes et onéreux), il guide le président du conseil syndical pas à pas : comptabilité, AG, charges, fonds de travaux, relances — avec un <strong>assistant IA disponible 24h/24</strong>. Consultez notre comparatif <a href="https://simplesyndic.fr/blog/syndic-benevole-vs-syndic-professionnel">syndic bénévole vs professionnel →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="reveal">
+        <h2>Prêt à reprendre<br>le contrôle de votre immeuble ?</h2>
+        <p>7 jours d'essai gratuits. Sans carte bancaire. Migration depuis votre ancien syndic prise en charge.</p>
+        <div class="final-cta-actions">
+          <a href="https://simplesyndic.fr/register" class="btn-lg-gold">Créer mon compte gratuitement</a>
+          <a href="https://simplesyndic.fr/blog" class="btn-lg-outline">Lire nos guides →</a>
+        </div>
+        <p class="final-guarantee">Résiliation à tout moment · Aucun engagement · Support 7j/7</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ NEWSLETTER -->
+  <section class="newsletter-strip" id="newsletter">
+    <div class="newsletter-inner">
+      <div class="newsletter-text">
+        <p class="newsletter-label">Palmarès 2026</p>
+        <h2 class="newsletter-title">Recevez le Palmarès comparatif 2026 des syndics directement dans votre boîte mail.</h2>
+        <p class="newsletter-sub">Comparatif complet : prix, réactivité, comptabilité, engagement — pour choisir ou changer de syndic en connaissance de cause.</p>
+      </div>
+      <form class="newsletter-form" id="newsletterForm" onsubmit="submitNewsletter(event)">
+        <div class="newsletter-input-row">
+          <input type="email" name="email" placeholder="votre@email.fr" required="" class="newsletter-input">
+          <button type="submit" class="newsletter-btn">Recevoir le Palmarès →</button>
+        </div>
+        <p class="newsletter-legal">Aucun spam. Désabonnement en 1 clic.</p>
+        <div class="newsletter-success" id="newsletterSuccess" style="display:none">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#C49A3C"></circle><path d="M6 10l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          Palmarès envoyé ! Vérifiez votre boîte mail.
+        </div>
+      </form>
+    </div>
+  </section>
+  <script>
+  async function submitNewsletter(e) {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const btn = form.querySelector('.newsletter-btn');
+    btn.disabled = true;
+    btn.textContent = 'Envoi…';
+    try {
+      const r = await fetch('/api/lead-magnet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'newsletter-landing' })
+      });
+      const d = await r.json();
+      if (r.ok || d.already) {
+        form.querySelector('.newsletter-input-row').style.display = 'none';
+        form.querySelector('.newsletter-legal').style.display = 'none';
+        document.getElementById('newsletterSuccess').style.display = 'flex';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Recevoir le Palmarès →';
+        alert('Erreur : ' + (d.error || 'réessayez'));
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Recevoir le Palmarès →';
+      alert('Erreur réseau, réessayez.');
+    }
+  }
+  </script>
+
+  </main>
+  <!-- ═══════════════════════════════════════════ FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <div class="footer-logo-mark"><img src="./Logiciel gestion copropriété syndic bénévole _ SimpleSyndic_files/logo.svg" alt="SimpleSyndic"></div>
+            <span class="footer-logo-name">SimpleSyndic</span>
+          </div>
+          <p class="footer-tagline">Le logiciel de gestion de copropriété<br>pour les syndics bénévoles et coopératifs.<br>Simple, transparent, abordable.</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Produit</p>
+          <ul>
+            <li><a href="https://simplesyndic.fr/#fonctionnalites">Fonctionnalités</a></li>
+            <li><a href="https://simplesyndic.fr/#tarifs">Tarifs</a></li>
+            <li><a href="https://simplesyndic.fr/#securite">Sécurité</a></li>
+            <li><a href="https://simplesyndic.fr/admin">Connexion</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Ressources</p>
+          <ul>
+            <li><a href="https://simplesyndic.fr/blog">Blog</a></li>
+            <li><a href="https://simplesyndic.fr/blog/comment-changer-de-syndic">Changer de syndic</a></li>
+            <li><a href="https://simplesyndic.fr/blog/syndic-benevole-vs-syndic-professionnel">Syndic bénévole</a></li>
+            <li><a href="https://simplesyndic.fr/blog/charges-copropriete-trop-elevees">Réduire les charges</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Contact</p>
+          <ul>
+            <li><a href="mailto:contact@simplesyndic.fr">contact@simplesyndic.fr</a></li>
+            <li><a href="https://simplesyndic.fr/owner">Espace copropriétaire</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-legal">© 2026 SimpleSyndic — Tous droits réservés</span>
+        <span class="footer-legal">Hébergé en France · <a href="https://simplesyndic.fr/politique-de-confidentialite" style="color:inherit">RGPD</a> · <a href="https://simplesyndic.fr/mentions-legales" style="color:inherit">Mentions légales</a> · <a href="https://simplesyndic.fr/cgv" style="color:inherit">CGV</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Billing toggle ─────────────────────────
+    let isAnnual = false;
+    function toggleBilling() {
+      isAnnual = !isAnnual;
+      const track = document.getElementById('billingToggle');
+      track.classList.toggle('annual', isAnnual);
+      document.querySelectorAll('.price-amount-num[data-monthly]').forEach(el => {
+        el.textContent = isAnnual ? el.dataset.annual : el.dataset.monthly;
+      });
+    }
+
+    // ── Scroll reveal ──────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Mobile menu ────────────────────────────
+    function toggleMenu() {
+      const btn = document.getElementById('hamburger');
+      const menu = document.getElementById('mobileMenu');
+      const isOpen = menu.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    // ── FAQ accordion ──────────────────────────
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      item.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    }
+  </script>
+
+  <!-- Lead magnet form -->
+  <script>
+    (function() {
+      const form    = document.getElementById('lmForm');
+      const emailEl = document.getElementById('lmEmail');
+      const btn     = document.getElementById('lmBtn');
+      const btnText = document.getElementById('lmBtnText');
+      const spinner = document.getElementById('lmBtnSpinner');
+      const success = document.getElementById('lmSuccess');
+
+      if (!form) return;
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = emailEl.value.trim();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          emailEl.classList.add('error');
+          emailEl.focus();
+          return;
+        }
+        emailEl.classList.remove('error');
+        btn.disabled = true;
+        btnText.style.display = 'none';
+        spinner.style.display = '';
+
+        try {
+          await fetch('/api/lead-magnet', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, source: 'comparateur-2026' }),
+          });
+        } catch (_) {}
+
+        form.style.display = 'none';
+        success.style.display = 'block';
+      });
+
+      emailEl.addEventListener('input', function() {
+        emailEl.classList.remove('error');
+      });
+    })();
+  </script>
+
+
+<!-- ═══════════════════ EXIT-INTENT POPUP ═══════════════════ -->
+<div id="exitPopup" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#F7F4EF;border-radius:16px;max-width:480px;width:100%;position:relative;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.3);">
+    <div style="background:#1A2744;padding:28px 32px 24px;">
+      <button onclick="closeExitPopup()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:rgba(255,255,255,.5);font-size:22px;cursor:pointer;line-height:1;">×</button>
+      <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#C49A3C;margin:0 0 10px;">Avant de partir</p>
+      <h2 style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:#fff;line-height:1.35;margin:0;">Vérifiez si votre syndic vous surfacture.</h2>
+    </div>
+    <div style="padding:28px 32px 32px;">
+      <p style="font-size:14px;color:#444;line-height:1.7;margin:0 0 20px;">Téléchargez gratuitement la <strong>Checklist des Frais Cachés</strong> — 5 abus fréquents à vérifier dès maintenant sur votre contrat de syndic.</p>
+      <form onsubmit="submitExitIntent(event)">
+        <div id="exitFields" style="display:flex;border-radius:8px;overflow:hidden;margin-bottom:10px;">
+          <input type="email" id="exitEmail" placeholder="votre@email.fr" required="" style="flex:1;padding:13px 14px;font-size:14px;outline:none;background:#fff;border:1px solid #DDD9D0;border-right:none;border-radius:8px 0 0 8px;">
+          <button type="submit" id="exitBtn" style="padding:13px 18px;background:#C49A3C;color:#1A2744;font-size:14px;font-weight:700;border:none;cursor:pointer;white-space:nowrap;border-radius:0 8px 8px 0;">Recevoir →</button>
+        </div>
+        <p id="exitLegal" style="font-size:12px;color:#999;margin:0;">Aucun spam. Désabonnement en 1 clic.</p>
+        <div id="exitSuccess" style="display:none;align-items:center;gap:8px;color:#C49A3C;font-weight:600;font-size:14px;margin-top:12px;">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#C49A3C"></circle><path d="M6 10l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          Checklist envoyée ! Vérifiez votre boîte mail.
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var shown = false;
+  function showPopup() {
+    if (shown || sessionStorage.getItem('exitShown')) return;
+    shown = true;
+    sessionStorage.setItem('exitShown', '1');
+    document.getElementById('exitPopup').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY < 10) showPopup();
+  });
+  window.addEventListener('scroll', function() {
+    var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if (pct > 0.7) showPopup();
+  }, { passive: true });
+})();
+function closeExitPopup() {
+  document.getElementById('exitPopup').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('exitPopup').addEventListener('click', function(e) {
+    if (e.target === this) closeExitPopup();
+  });
+});
+async function submitExitIntent(e) {
+  e.preventDefault();
+  var email = document.getElementById('exitEmail').value;
+  var btn = document.getElementById('exitBtn');
+  btn.disabled = true; btn.textContent = 'Envoi…';
+  try {
+    var r = await fetch('/api/lead-magnet', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'exit-intent' })
+    });
+    var d = await r.json();
+    if (r.ok || d.already) {
+      document.getElementById('exitFields').style.display = 'none';
+      document.getElementById('exitLegal').style.display = 'none';
+      document.getElementById('exitSuccess').style.display = 'flex';
+    } else {
+      btn.disabled = false; btn.textContent = 'Recevoir →';
+      alert('Erreur, réessayez.');
+    }
+  } catch { btn.disabled = false; btn.textContent = 'Recevoir →'; }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SimpleSyndic",
+  "url": "https://simplesyndic.fr",
+  "logo": "https://simplesyndic.fr/images/logo.svg",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "contact@simplesyndic.fr",
+    "contactType": "customer support",
+    "availableLanguage": "French"
+  },
+  "sameAs": []
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SimpleSyndic",
+  "url": "https://simplesyndic.fr",
+  "description": "Logiciel de gestion de copropriété pour syndic bénévole et coopératif",
+  "inLanguage": "fr-FR"
+}
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a09993a40ad9b2d1',t:'MTc4MTEwNzA5OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; visibility: hidden;" src="./Logiciel gestion copropriété syndic bénévole _ SimpleSyndic_files/saved_resource.html"></iframe><script defer="" src="./Logiciel gestion copropriété syndic bénévole _ SimpleSyndic_files/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;6480ccfef22f47fa9b7db9014b4bdf3b&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://fancfknaplihpclbhbpclnmmjcjanbaf/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body></html>

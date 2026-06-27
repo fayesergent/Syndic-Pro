@@ -1,0 +1,16 @@
+project_id = "syndicpro-prod"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[auth]
+enabled = true
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["https://localhost:3000"]
+
+[functions.admin-users]
+verify_jwt = true
