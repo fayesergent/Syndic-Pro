@@ -1,7 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { loadSiteContent, DEFAULT_CONTENT } from "../services/siteContentService.js";
 
 export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
   const [openFaq, setOpenFaq] = useState(null);
+  const [content, setContent] = useState(DEFAULT_CONTENT);
+
+  useEffect(() => {
+    loadSiteContent().then(setContent);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -223,7 +229,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
                 width: "6px", height: "6px", background: "var(--gold)",
                 borderRadius: "50%", animation: "pulse 2s infinite"
               }} />
-              Solution SaaS pour le Sénégal
+              {content.hero.badge}
             </div>
 
             <h1 style={{
@@ -232,14 +238,20 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
               fontWeight: "800", color: "#fff", lineHeight: "1.1",
               letterSpacing: "-.5px", marginBottom: "24px"
             }}>
-              Gérez vos <em style={{ fontStyle: "normal", color: "var(--gold-lt)" }}>copropriétés</em> en toute simplicité
+              {content.hero.titleHighlight ? (
+                <>
+                  {content.hero.title.split(content.hero.titleHighlight)[0]}
+                  <em style={{ fontStyle: "normal", color: "var(--gold-lt)" }}>{content.hero.titleHighlight}</em>
+                  {content.hero.title.split(content.hero.titleHighlight).slice(1).join(content.hero.titleHighlight)}
+                </>
+              ) : content.hero.title}
             </h1>
 
             <p style={{
               color: "rgba(255,255,255,.78)", fontSize: "17px",
               lineHeight: "1.75", marginBottom: "40px", fontWeight: "300"
             }}>
-              Le logiciel dédié aux syndics professionnels et bénévoles au Sénégal : comptabilité réglementaire, convocations AG, gestion des charges et assistant IA. Solution complète et 100% locale.
+              {content.hero.subtitle}
             </p>
 
             <div style={{ display: "flex", gap: "14px", alignItems: "center", flexWrap: "wrap" }}>
@@ -251,7 +263,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
                 border: "none", cursor: "pointer",
                 boxShadow: "0 4px 20px rgba(196,154,60,.3)",
                 whiteSpace: "nowrap"
-              }}>Commencer gratuitement</button>
+              }}>{content.hero.ctaPrimary}</button>
               <button style={{
                 color: "rgba(255,255,255,.8)",
                 border: "2px solid rgba(255,255,255,.25)",
@@ -260,7 +272,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
                 fontSize: isMobile ? "15px" : "17px", fontWeight: "500",
                 background: "transparent", cursor: "pointer",
                 whiteSpace: "nowrap"
-              }}>Voir la démo</button>
+              }}>{content.hero.ctaSecondary}</button>
             </div>
 
             <div style={{ marginTop: "36px", display: "flex", alignItems: "center", gap: "12px", color: "rgba(255,255,255,.82)", fontSize: "13px" }}>
@@ -276,7 +288,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
                   }}>{initials}</span>
                 ))}
               </div>
-              <span>Déjà adopté par 50+ copropriétés à Dakar</span>
+              <span>{content.hero.socialProof}</span>
             </div>
           </div>
 
@@ -305,20 +317,15 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
                 </div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "20px" }}>
-                  <div style={{ background: "rgba(255,255,255,.06)", borderRadius: "12px", padding: "16px" }}>
-                    <div style={{
-                      fontFamily: "'Playfair Display', serif",
-                      fontSize: "28px", fontWeight: "700", color: "#fff", lineHeight: "1"
-                    }}>32</div>
-                    <div style={{ color: "rgba(255,255,255,.4)", fontSize: "11px", marginTop: "4px" }}>Immeubles actifs</div>
-                  </div>
-                  <div style={{ background: "rgba(255,255,255,.06)", borderRadius: "12px", padding: "16px" }}>
-                    <div style={{
-                      fontFamily: "'Playfair Display', serif",
-                      fontSize: "28px", fontWeight: "700", color: "#fff", lineHeight: "1"
-                    }}>847</div>
-                    <div style={{ color: "rgba(255,255,255,.4)", fontSize: "11px", marginTop: "4px" }}>Lots gérés</div>
-                  </div>
+                  {(content.hero.dashboardStats || []).map((stat, si) => (
+                    <div key={si} style={{ background: "rgba(255,255,255,.06)", borderRadius: "12px", padding: "16px" }}>
+                      <div style={{
+                        fontFamily: "'Playfair Display', serif",
+                        fontSize: "28px", fontWeight: "700", color: "#fff", lineHeight: "1"
+                      }}>{stat.value}</div>
+                      <div style={{ color: "rgba(255,255,255,.4)", fontSize: "11px", marginTop: "4px" }}>{stat.label}</div>
+                    </div>
+                  ))}
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -333,7 +340,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
                       padding: "8px 12px", borderRadius: "10px",
                       fontSize: "12px", lineHeight: "1.5",
                       background: "rgba(255,255,255,.1)", color: "rgba(255,255,255,.75)"
-                    }}>Quel est le solde actuel de l'immeuble Résidence Almadies ?</div>
+                    }}>{content.hero.chatDemo?.question}</div>
                   </div>
                   <div style={{ display: "flex", gap: "8px", alignItems: "flex-start", flexDirection: "row-reverse" }}>
                     <div style={{
@@ -346,7 +353,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
                       padding: "8px 12px", borderRadius: "10px",
                       fontSize: "12px", lineHeight: "1.5",
                       background: "rgba(196,154,60,.2)", color: "rgba(255,255,255,.9)"
-                    }}>Solde : 12.450.000 FCFA. 3 impayés en cours. Taux de recouvrement : 94%</div>
+                    }}>{content.hero.chatDemo?.answer}</div>
                   </div>
                 </div>
               </div>
@@ -361,8 +368,8 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
               }}>
                 <span style={{ fontSize: "22px" }}>💰</span>
                 <div>
-                  <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--ink)", lineHeight: "1.3" }}>Économie moyenne</div>
-                  <div style={{ fontSize: "11px", color: "var(--muted)", fontWeight: "400" }}>1.5M FCFA/an vs syndic</div>
+                  <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--ink)", lineHeight: "1.3" }}>{content.hero.statsLeft?.title}</div>
+                  <div style={{ fontSize: "11px", color: "var(--muted)", fontWeight: "400" }}>{content.hero.statsLeft?.subtitle}</div>
                 </div>
               </div>
               <div style={{
@@ -374,8 +381,8 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
               }}>
                 <span style={{ fontSize: "22px" }}>⚡</span>
                 <div>
-                  <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--ink)", lineHeight: "1.3" }}>Installation 24h</div>
-                  <div style={{ fontSize: "11px", color: "var(--muted)", fontWeight: "400" }}>Migration gratuite</div>
+                  <div style={{ fontSize: "12px", fontWeight: "600", color: "var(--ink)", lineHeight: "1.3" }}>{content.hero.statsRight?.title}</div>
+                  <div style={{ fontSize: "11px", color: "var(--muted)", fontWeight: "400" }}>{content.hero.statsRight?.subtitle}</div>
                 </div>
               </div>
             </div>
@@ -395,13 +402,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
           display: "flex", alignItems: "center", justifyContent: "center",
           gap: isMobile ? "20px" : "40px", flexWrap: "wrap"
         }}>
-          {[
-            { icon: "🛡️", text: "Conforme OHADA" },
-            { icon: "🔒", text: "Données au Sénégal" },
-            { icon: "📊", text: "Comptabilité certifiée" },
-            { icon: "🤖", text: "Assistant IA intégré" },
-            !isMobile && { icon: "📞", text: "Support local" }
-          ].filter(Boolean).map((item, i) => (
+          {(content.proof_bar.items || []).filter((_, i) => !isMobile || i < 4).map((item, i) => (
             <div key={i} style={{
               display: "flex", alignItems: "center", gap: "8px",
               color: "var(--navy)", fontSize: isMobile ? "12px" : "13px", fontWeight: "600"
@@ -420,18 +421,18 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             <div style={{
               fontSize: "11px", fontWeight: "700", letterSpacing: ".12em",
               textTransform: "uppercase", color: "var(--navy)", marginBottom: "14px"
-            }}>Le problème</div>
+            }}>{content.problems.sectionLabel}</div>
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: isMobile ? "28px" : "clamp(28px, 4vw, 44px)",
               fontWeight: "700", color: "var(--navy)",
               lineHeight: "1.15", letterSpacing: "-.3px", marginBottom: "16px"
-            }}>Votre syndic vous coûte<br />trop cher pour ce qu'il fait.</h2>
+            }}>{content.problems.title}</h2>
             <p style={{
               fontSize: "17px", color: "var(--muted)",
               fontWeight: "300", lineHeight: "1.7", maxWidth: "700px"
             }}>
-              Les honoraires explosent, la réactivité disparaît. Il existe une alternative légale, plus économique — et SyndicPro la rend accessible à tous au Sénégal.
+              {content.problems.subtitle}
             </p>
           </div>
 
@@ -443,28 +444,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
           }}>
             {/* Problems List */}
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              {[
-                {
-                  icon: "💸",
-                  title: "Honoraires opaques en hausse constante",
-                  desc: "500.000 à 1.500.000 FCFA/an pour un immeuble standard. Avec des frais \"extra\" qui s'accumulent à chaque intervention."
-                },
-                {
-                  icon: "⏰",
-                  title: "Réactivité inexistante",
-                  desc: "Une fuite, un ascenseur en panne — et vous attendez des semaines une réponse par email."
-                },
-                {
-                  icon: "📋",
-                  title: "Comptes illisibles, AG inutiles",
-                  desc: "Des documents complexes conçus pour décourager les questions plutôt que pour informer les copropriétaires."
-                },
-                {
-                  icon: "🚪",
-                  title: "Changer de syndic = un parcours du combattant",
-                  desc: "Vote en AG, délai de préavis, récupération des archives… Personne ne vous guide dans la transition."
-                }
-              ].map((item, i) => (
+              {(content.problems.items || []).map((item, i) => (
                 <div key={i} style={{
                   display: "flex",
                   gap: "14px",
@@ -517,7 +497,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
                 fontWeight: "700",
                 marginBottom: "24px",
                 color: "var(--gold-lt)"
-              }}>La solution : le syndic moderne avec SyndicPro</h3>
+              }}>{content.problems.solutionTitle}</h3>
               <ul style={{
                 listStyle: "none",
                 display: "flex",
@@ -525,13 +505,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
                 gap: "14px",
                 marginBottom: "32px"
               }}>
-                {[
-                  "Vous gérez votre immeuble vous-même, avec nos outils",
-                  "L'IA répond à toutes vos questions en français ou wolof",
-                  "La comptabilité OHADA, les AG et les relances sont automatisées",
-                  "Nous prenons en charge votre transition depuis votre ancien syndic",
-                  "Un juriste disponible par téléphone pour les cas complexes"
-                ].map((text, i) => (
+                {(content.problems.solutionPoints || []).map((text, i) => (
                   <li key={i} style={{
                     fontSize: "14px",
                     lineHeight: "1.6",
@@ -551,11 +525,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
                 paddingTop: "24px",
                 borderTop: "1px solid rgba(255,255,255,.15)"
               }}>
-                {[
-                  { num: "−70%", label: "sur vos charges" },
-                  { num: "48h", label: "pour être opérationnel" },
-                  { num: "0 FCFA", label: "frais de migration" }
-                ].map((stat, i) => (
+                {(content.problems.solutionStats || []).map((stat, i) => (
                   <div key={i} style={{ textAlign: "center" }}>
                     <div style={{
                       fontFamily: "'Playfair Display', serif",
@@ -584,18 +554,18 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             <div style={{
               fontSize: "11px", fontWeight: "700", letterSpacing: ".12em",
               textTransform: "uppercase", color: "var(--navy)", marginBottom: "14px"
-            }}>Fonctionnalités</div>
+            }}>{content.features.sectionLabel}</div>
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: isMobile ? "28px" : "clamp(28px, 4vw, 44px)",
               fontWeight: "700", color: "var(--navy)",
               lineHeight: "1.15", letterSpacing: "-.3px", marginBottom: "16px"
-            }}>Tout ce dont un syndic a besoin. Dans un seul outil.</h2>
+            }}>{content.features.title}</h2>
             <p style={{
               fontSize: "17px", color: "var(--muted)",
               fontWeight: "300", lineHeight: "1.7", maxWidth: "560px", margin: "0 auto"
             }}>
-              De la comptabilité à la gestion des travaux, SyndicPro couvre toutes vos obligations avec un assistant IA pour vous guider.
+              {content.features.subtitle}
             </p>
           </div>
 
@@ -604,38 +574,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
             gap: "24px"
           }}>
-            {[
-              {
-                icon: "📊",
-                title: "Comptabilité & trésorerie",
-                desc: "Plan comptable OHADA, appels de fonds, suivi bancaire et clôture d'exercice en quelques clics."
-              },
-              {
-                icon: "👥",
-                title: "Assemblées générales",
-                desc: "Convocations automatiques, gestion des votes, PV généré par l'IA. Conformité garantie."
-              },
-              {
-                icon: "🤖",
-                title: "Assistant IA 24h/24",
-                desc: "Posez vos questions en français ou en wolof. L'IA lit votre base de données en temps réel."
-              },
-              {
-                icon: "🔧",
-                title: "Tickets & travaux",
-                desc: "Suivi des incidents, gestion des devis, carnet d'entretien, recherche d'artisans qualifiés."
-              },
-              {
-                icon: "🔔",
-                title: "Relances automatiques",
-                desc: "Détection des impayés, envoi de relances graduées sans intervention manuelle."
-              },
-              {
-                icon: "📱",
-                title: "Espace copropriétaire",
-                desc: "Application mobile pour chaque copropriétaire : solde, historique, tickets, documents."
-              }
-            ].map((feat, i) => (
+            {(content.features.items || []).map((feat, i) => (
               <div key={i} className="feat-card" style={{
                 background: "var(--cream)", borderRadius: "var(--r)", padding: "32px",
                 border: "1px solid var(--border)", transition: "all .3s"
@@ -662,18 +601,18 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             <div style={{
               fontSize: "11px", fontWeight: "700", letterSpacing: ".12em",
               textTransform: "uppercase", color: "var(--gold-lt)", marginBottom: "14px"
-            }}>Sécurité & Conformité</div>
+            }}>{content.security.sectionLabel}</div>
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: isMobile ? "28px" : "clamp(28px, 4vw, 44px)",
               fontWeight: "700", color: "#fff",
               lineHeight: "1.15", letterSpacing: "-.3px", marginBottom: "16px"
-            }}>Conforme. Sécurisé. Certifié.</h2>
+            }}>{content.security.title}</h2>
             <p style={{
               fontSize: "17px", color: "rgba(255,255,255,.78)",
               fontWeight: "300", lineHeight: "1.7", maxWidth: "560px", margin: "0 auto"
             }}>
-              La gestion d'une copropriété engage votre responsabilité. SyndicPro est conçu pour vous protéger selon la législation sénégalaise.
+              {content.security.subtitle}
             </p>
           </div>
 
@@ -682,38 +621,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
             gap: "24px"
           }}>
-            {[
-              {
-                icon: "⚖️",
-                title: "Conforme au droit sénégalais",
-                desc: "Application stricte des dispositions du Code des Obligations Civiles et Commerciales (COCC) en matière de copropriété."
-              },
-              {
-                icon: "📋",
-                title: "Comptabilité OHADA",
-                desc: "Respect du plan comptable OHADA et des normes SYSCOHADA pour une comptabilité conforme et auditée."
-              },
-              {
-                icon: "🔐",
-                title: "Données hébergées au Sénégal",
-                desc: "Serveurs locaux à Dakar. Chiffrement AES-256, sauvegardes quotidiennes, conformité DPD (Direction Protection Données)."
-              },
-              {
-                icon: "👨‍⚖️",
-                title: "Expert juridique disponible",
-                desc: "Un juriste spécialisé en droit immobilier sénégalais disponible pour répondre à vos questions complexes."
-              },
-              {
-                icon: "🏦",
-                title: "Traçabilité bancaire",
-                desc: "Intégration avec les banques locales (BICIS, SGBS, BOA, etc.) pour une réconciliation automatique sécurisée."
-              },
-              {
-                icon: "📞",
-                title: "Support local en français & wolof",
-                desc: "Équipe basée à Dakar, disponible en français et en wolof pour vous accompagner au quotidien."
-              }
-            ].map((item, i) => (
+            {(content.security.items || []).map((item, i) => (
               <div key={i} className="sec-card" style={{
                 background: "rgba(255,255,255,.05)", borderRadius: "var(--r)",
                 padding: "28px", border: "1px solid rgba(255,255,255,.1)",
@@ -740,18 +648,18 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             <div style={{
               fontSize: "11px", fontWeight: "700", letterSpacing: ".12em",
               textTransform: "uppercase", color: "var(--navy)", marginBottom: "14px"
-            }}>Tarifs transparents</div>
+            }}>{content.pricing.sectionLabel}</div>
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: isMobile ? "28px" : "clamp(28px, 4vw, 44px)",
               fontWeight: "700", color: "var(--navy)",
               lineHeight: "1.15", letterSpacing: "-.3px", marginBottom: "16px"
-            }}>Un prix fixe. Pas de surprise.</h2>
+            }}>{content.pricing.title}</h2>
             <p style={{
               fontSize: "17px", color: "var(--muted)",
               fontWeight: "300", lineHeight: "1.7", maxWidth: "560px", margin: "0 auto"
             }}>
-              Tarif adapté au marché sénégalais. Un forfait mensuel en FCFA, tout inclus.
+              {content.pricing.subtitle}
             </p>
           </div>
 
@@ -760,56 +668,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
             gap: "24px", alignItems: "end"
           }}>
-            {[
-              {
-                name: "Essentiel",
-                lots: "Jusqu'à 15 lots",
-                price: "29.000",
-                tag: "Essentiel",
-                features: [
-                  "Comptabilité complète OHADA",
-                  "Gestion des copropriétaires",
-                  "Convocations & PV d'AG",
-                  "Relances impayés",
-                  "Espace copropriétaire mobile",
-                  "Support par email"
-                ],
-                cta: "Commencer",
-                featured: false
-              },
-              {
-                name: "Confort",
-                lots: "16 à 30 lots",
-                price: "49.000",
-                tag: "⭐ Populaire",
-                features: [
-                  "Tout l'Essentiel",
-                  "Assistant IA illimité",
-                  "Gestion appels d'offres",
-                  "Carnet d'entretien complet",
-                  "Rapports financiers avancés",
-                  "Support téléphonique"
-                ],
-                cta: "Commencer",
-                featured: true
-              },
-              {
-                name: "Sur-mesure",
-                lots: "Plus de 30 lots",
-                price: "Sur devis",
-                tag: "Sur-mesure",
-                features: [
-                  "Tout le Confort",
-                  "Multi-immeubles",
-                  "Compte bancaire dédié",
-                  "Juriste attitré",
-                  "Formation sur site",
-                  "SLA prioritaire 4h"
-                ],
-                cta: "Nous contacter",
-                featured: false
-              }
-            ].map((plan, i) => (
+            {(content.pricing.plans || []).map((plan, i) => (
               <div key={i} className="price-card" style={{
                 background: plan.featured ? "var(--navy)" : "var(--white)",
                 borderRadius: "var(--r-md)", padding: "36px",
@@ -902,7 +761,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             textAlign: "center", marginTop: "40px",
             fontSize: "13px", color: "var(--muted)"
           }}>
-            Pas de frais cachés · Résiliation à tout moment · Support inclus
+            {content.pricing.footerNote}
           </p>
         </div>
       </section>
@@ -914,18 +773,18 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             <div style={{
               fontSize: "11px", fontWeight: "700", letterSpacing: ".12em",
               textTransform: "uppercase", color: "var(--navy)", marginBottom: "14px"
-            }}>Témoignages</div>
+            }}>{content.testimonials.sectionLabel}</div>
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: isMobile ? "28px" : "clamp(28px, 4vw, 40px)",
               fontWeight: "700", color: "var(--navy)",
               lineHeight: "1.15", letterSpacing: "-.3px", marginBottom: "16px"
-            }}>Ils ont franchi le pas</h2>
+            }}>{content.testimonials.title}</h2>
             <p style={{
               fontSize: "17px", color: "var(--muted)",
               fontWeight: "300", lineHeight: "1.7", maxWidth: "560px", margin: "0 auto"
             }}>
-              Des présidents de conseil syndical et gestionnaires d'immeubles à Dakar comme vous.
+              {content.testimonials.subtitle}
             </p>
           </div>
 
@@ -934,29 +793,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
             gap: "24px"
           }}>
-            {[
-              {
-                stars: 5,
-                text: "Notre ancien syndic nous coûtait 850.000 FCFA/an. Avec SyndicPro, on paie 49.000 FCFA/mois et on gère tout nous-mêmes. La migration a pris 48h et le support était disponible à chaque étape.",
-                initials: "AM",
-                name: "Amadou M.",
-                role: "Président CS — 24 lots, Almadies"
-              },
-              {
-                stars: 5,
-                text: "Ce que j'apprécie le plus, c'est l'IA. Je pose mes questions en wolof, elle me répond avec les chiffres exacts de notre copropriété. C'est comme avoir un expert comptable disponible 24h/24.",
-                initials: "FB",
-                name: "Fatou B.",
-                role: "Gestionnaire — 18 lots, Mermoz"
-              },
-              {
-                stars: 5,
-                text: "L'AG de mars était la première que j'organisais seul. Convocations envoyées en 3 clics, PV généré automatiquement. Zéro erreur de procédure. Je ne retournerai jamais à un syndic classique.",
-                initials: "IK",
-                name: "Ibrahima K.",
-                role: "Président CS — 16 lots, Plateau"
-              }
-            ].map((testimonial, i) => (
+            {(content.testimonials.items || []).map((testimonial, i) => (
               <div key={i} className="testi-card" style={{
                 background: "var(--white)",
                 borderRadius: "var(--r)",
@@ -1024,58 +861,17 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             <div style={{
               fontSize: "11px", fontWeight: "700", letterSpacing: ".12em",
               textTransform: "uppercase", color: "var(--navy)", marginBottom: "14px"
-            }}>Questions fréquentes</div>
+            }}>{content.faq.sectionLabel}</div>
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: isMobile ? "28px" : "clamp(28px, 4vw, 40px)",
               fontWeight: "700", color: "var(--navy)",
               lineHeight: "1.15", letterSpacing: "-.3px"
-            }}>Tout ce que vous voulez savoir sur SyndicPro</h2>
+            }}>{content.faq.title}</h2>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            {[
-              {
-                q: "Qu'est-ce que SyndicPro ?",
-                a: "SyndicPro est un logiciel de gestion de copropriété conçu pour les <strong>syndics professionnels et bénévoles au Sénégal</strong>. Il couvre la comptabilité OHADA, les assemblées générales, la gestion des charges et intègre un <strong>assistant IA</strong> pour vous accompagner dans toutes vos démarches."
-              },
-              {
-                q: "Combien coûte SyndicPro ?",
-                a: "SyndicPro est disponible à partir de <strong>29.000 FCFA/mois</strong> (formule Essentiel pour jusqu'à 15 lots). La formule Confort est à 49.000 FCFA/mois (16-30 lots). Les deux formules incluent un essai gratuit de 14 jours sans engagement et sans carte bancaire."
-              },
-              {
-                q: "SyndicPro est-il conforme à la législation sénégalaise ?",
-                a: "Oui, totalement. SyndicPro respecte le <strong>Code des Obligations Civiles et Commerciales (COCC)</strong> du Sénégal et applique les normes <strong>OHADA</strong> pour la comptabilité. Toutes les procédures (AG, convocations, votes) sont conformes à la réglementation en vigueur."
-              },
-              {
-                q: "SyndicPro convient-il à ma taille de copropriété ?",
-                a: "SyndicPro s'adapte aux copropriétés de <strong>2 à 100 lots</strong>. Il est particulièrement efficace pour les petites et moyennes copropriétés (5 à 50 lots) qui souhaitent une gestion moderne et professionnelle."
-              },
-              {
-                q: "Peut-on migrer depuis notre système actuel vers SyndicPro ?",
-                a: "Oui. Notre équipe à Dakar accompagne la transition : récupération des données comptables, paramétrage de la copropriété, formation des utilisateurs. La migration est <strong>gratuite et prise en charge</strong> par nos experts."
-              },
-              {
-                q: "Faut-il des compétences comptables pour utiliser SyndicPro ?",
-                a: "Non. SyndicPro est conçu pour des <strong>non-comptables</strong>. La saisie des dépenses, la répartition des charges et la clôture d'exercice sont guidées pas à pas. L'assistant IA répond à vos questions en temps réel, en français ou en wolof."
-              },
-              {
-                q: "SyndicPro remplace-t-il vraiment un syndic professionnel ?",
-                a: "SyndicPro est utilisé autant par les <strong>syndics professionnels</strong> que par les <strong>syndics bénévoles</strong>. Pour la grande majorité des copropriétés de moins de 50 lots, il couvre toutes les obligations : comptabilité OHADA, AG, gestion des charges, relances, espace copropriétaire."
-              },
-              {
-                q: "Combien de temps prend la gestion avec SyndicPro ?",
-                a: "En moyenne, nos utilisateurs consacrent <strong>1 à 2 heures par mois</strong> à la gestion courante. La préparation d'une AG prend environ 2 heures avec SyndicPro grâce à l'automatisation et l'assistant IA."
-              },
-              {
-                q: "Mes données sont-elles sécurisées ?",
-                a: "Oui. Vos données sont hébergées sur des <strong>serveurs locaux à Dakar</strong> avec chiffrement AES-256 et sauvegardes quotidiennes. Nous sommes conformes aux normes de la Direction de la Protection des Données (DPD) du Sénégal. Vos données ne quittent jamais le territoire sénégalais."
-              },
-              {
-                q: "Puis-je intégrer SyndicPro avec ma banque ?",
-                a: "Oui. SyndicPro s'intègre avec les principales banques sénégalaises (<strong>BICIS, SGBS, BOA, Ecobank, UBA</strong>, etc.) pour la réconciliation bancaire automatique et le suivi des paiements en temps réel."
-              }
-            ].map((item, i) => (
+            {(content.faq.items || []).map((item, i) => (
               <div key={i} style={{
                 background: "var(--cream)",
                 border: "1px solid var(--border)",
@@ -1139,13 +935,13 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             fontWeight: "700", color: "#fff",
             lineHeight: "1.15", marginBottom: "20px"
           }}>
-            Prêt à moderniser la gestion de vos copropriétés ?
+            {content.cta_final.title}
           </h2>
           <p style={{
             fontSize: "17px", color: "rgba(255,255,255,.78)",
             lineHeight: "1.7", marginBottom: "40px"
           }}>
-            14 jours d'essai gratuits. Sans carte bancaire. Migration depuis votre système actuel prise en charge.
+            {content.cta_final.subtitle}
           </p>
           <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap" }}>
             <button onClick={onSignup} style={{
@@ -1154,7 +950,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
               borderRadius: "12px",
               fontSize: isMobile ? "15px" : "17px", fontWeight: "700",
               border: "none", cursor: "pointer"
-            }}>Créer mon compte gratuitement</button>
+            }}>{content.cta_final.ctaPrimary}</button>
             <button style={{
               color: "rgba(255,255,255,.8)",
               border: "2px solid rgba(255,255,255,.25)",
@@ -1162,13 +958,13 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
               borderRadius: "12px",
               fontSize: isMobile ? "15px" : "17px", fontWeight: "500",
               background: "transparent", cursor: "pointer"
-            }}>Contactez-nous →</button>
+            }}>{content.cta_final.ctaSecondary}</button>
           </div>
           <p style={{
             marginTop: "32px", fontSize: "13px",
             color: "rgba(255,255,255,.5)"
           }}>
-            Support 7j/7 · Aucun engagement · Formation incluse
+            {content.cta_final.footerNote}
           </p>
         </div>
       </section>
@@ -1201,7 +997,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
                 }}>SyndicPro</span>
               </button>
               <p style={{ fontSize: "14px", lineHeight: "1.6", marginBottom: "20px", color: "rgba(255,255,255,.6)" }}>
-                La solution moderne de gestion de copropriété pour le Sénégal. Conforme OHADA, assistant IA intégré, support local.
+                {content.footer.description}
               </p>
               <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
                 <a href="#" className="social-link" style={{
@@ -1231,49 +1027,24 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             {/* Product */}
             {!isMobile && (
               <>
-                <div>
-                  <h4 style={{
-                    fontSize: "13px", fontWeight: "700", color: "#fff",
-                    marginBottom: "16px", textTransform: "uppercase",
-                    letterSpacing: ".08em"
-                  }}>Produit</h4>
-                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
-                    <li><a href="#fonctionnalites" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>Fonctionnalités</a></li>
-                    <li><a href="#tarifs" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>Tarifs</a></li>
-                    <li><a href="#securite" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>Sécurité</a></li>
-                    <li><a href="#faq" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>FAQ</a></li>
-                  </ul>
-                </div>
-
-                {/* Resources */}
-                <div>
-                  <h4 style={{
-                    fontSize: "13px", fontWeight: "700", color: "#fff",
-                    marginBottom: "16px", textTransform: "uppercase",
-                    letterSpacing: ".08em"
-                  }}>Ressources</h4>
-                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
-                    <li><a href="#" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>Documentation</a></li>
-                    <li><a href="#" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>Guide de démarrage</a></li>
-                    <li><a href="#" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>Vidéos tutoriels</a></li>
-                    <li><a href="#" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>Blog</a></li>
-                  </ul>
-                </div>
-
-                {/* Company */}
-                <div>
-                  <h4 style={{
-                    fontSize: "13px", fontWeight: "700", color: "#fff",
-                    marginBottom: "16px", textTransform: "uppercase",
-                    letterSpacing: ".08em"
-                  }}>Entreprise</h4>
-                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
-                    <li><a href="#" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>À propos</a></li>
-                    <li><a href="#" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>Contact</a></li>
-                    <li><a href="#" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>Carrières</a></li>
-                    <li><a href="#" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>Partenaires</a></li>
-                  </ul>
-                </div>
+                {[
+                  { title: "Produit", links: content.footer.productLinks },
+                  { title: "Ressources", links: content.footer.resourceLinks },
+                  { title: "Entreprise", links: content.footer.companyLinks },
+                ].map((col, ci) => (
+                  <div key={ci}>
+                    <h4 style={{
+                      fontSize: "13px", fontWeight: "700", color: "#fff",
+                      marginBottom: "16px", textTransform: "uppercase",
+                      letterSpacing: ".08em"
+                    }}>{col.title}</h4>
+                    <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
+                      {(col.links || []).map((link, li) => (
+                        <li key={li}><a href={link.href || "#"} className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", fontSize: "14px", transition: "color .2s" }}>{link.label}</a></li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </>
             )}
           </div>
@@ -1289,7 +1060,7 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             gap: "16px"
           }}>
             <div style={{ fontSize: "13px", color: "rgba(255,255,255,.5)" }}>
-              © 2026 SyndicPro. Tous droits réservés. Dakar, Sénégal 🇸🇳
+              {content.footer.copyright}
             </div>
             <div style={{
               display: "flex",
@@ -1297,10 +1068,9 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
               flexWrap: "wrap",
               fontSize: "13px"
             }}>
-              <a href="#" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", transition: "color .2s" }}>Mentions légales</a>
-              <a href="#" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", transition: "color .2s" }}>Confidentialité</a>
-              <a href="#" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", transition: "color .2s" }}>CGV</a>
-              <a href="#" className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", transition: "color .2s" }}>Cookies</a>
+              {(content.footer.legalLinks || []).map((link, li) => (
+                <a key={li} href={link.href || "#"} className="footer-link" style={{ color: "rgba(255,255,255,.65)", textDecoration: "none", transition: "color .2s" }}>{link.label}</a>
+              ))}
             </div>
           </div>
 
@@ -1315,34 +1085,15 @@ export const LandingPage = ({ onSignup, onLogin, isMobile }) => {
             flexWrap: "wrap",
             alignItems: "center"
           }}>
-            <div style={{
-              display: "flex", alignItems: "center", gap: "8px",
-              fontSize: "12px", color: "rgba(255,255,255,.5)"
-            }}>
-              <span style={{ fontSize: "16px" }}>🛡️</span>
-              Conforme OHADA
-            </div>
-            <div style={{
-              display: "flex", alignItems: "center", gap: "8px",
-              fontSize: "12px", color: "rgba(255,255,255,.5)"
-            }}>
-              <span style={{ fontSize: "16px" }}>🔒</span>
-              Hébergé au Sénégal
-            </div>
-            <div style={{
-              display: "flex", alignItems: "center", gap: "8px",
-              fontSize: "12px", color: "rgba(255,255,255,.5)"
-            }}>
-              <span style={{ fontSize: "16px" }}>✓</span>
-              Certifié DPD
-            </div>
-            <div style={{
-              display: "flex", alignItems: "center", gap: "8px",
-              fontSize: "12px", color: "rgba(255,255,255,.5)"
-            }}>
-              <span style={{ fontSize: "16px" }}>📞</span>
-              Support local
-            </div>
+            {(content.footer.trustBadges || []).map((badge, bi) => (
+              <div key={bi} style={{
+                display: "flex", alignItems: "center", gap: "8px",
+                fontSize: "12px", color: "rgba(255,255,255,.5)"
+              }}>
+                <span style={{ fontSize: "16px" }}>{badge.icon}</span>
+                {badge.text}
+              </div>
+            ))}
           </div>
         </div>
       </footer>

@@ -7,19 +7,28 @@ import { TabImmeubles }    from "./TabImmeubles.jsx";
 import { TabLots }         from "./TabLots.jsx";
 import { TabUtilisateurs } from "./TabUtilisateurs.jsx";
 import { TabParametres }   from "./TabParametres.jsx";
+import { TabSiteContent }  from "./TabSiteContent.jsx";
+import { TabModules }      from "./TabModules.jsx";
+import { TabDemandesModules } from "./TabDemandesModules.jsx";
 
 const ALL_TABS = [
   {id:"syndicats",    label:"Syndicats",     icon:"building"},
   {id:"immeubles",    label:"Immeubles",     icon:"building"},
   {id:"lots",         label:"Lots",          icon:"percent"},
   {id:"utilisateurs", label:"Utilisateurs",  icon:"users"},
+  {id:"modules",      label:"Modules",       icon:"settings"},
   {id:"parametres",   label:"Paramètres",    icon:"settings"},
+  {id:"site_content", label:"Site Web",      icon:"dashboard"},
+  {id:"demandes",     label:"Demandes",      icon:"bell"},
 ];
 
 export const BackofficeView = ({isMobile}) => {
   const {user} = useApp();
   const isPlatformAdmin = user?.role === "superadmin";
-  const TABS = isPlatformAdmin ? ALL_TABS : ALL_TABS.filter(t => t.id !== "syndicats");
+  const superadminOnly = ["syndicats", "site_content", "demandes"];
+  const TABS = isPlatformAdmin
+    ? ALL_TABS
+    : ALL_TABS.filter(t => !superadminOnly.includes(t.id));
   const [tab, setTab]                   = useState(isPlatformAdmin ? "syndicats" : "immeubles");
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [successClient, setSuccessClient]   = useState(null);
@@ -116,7 +125,10 @@ export const BackofficeView = ({isMobile}) => {
       {tab === "immeubles"    && <TabImmeubles    isMobile={isMobile} syndicatId={activeSyndicatId || undefined}/>}
       {tab === "lots"         && <TabLots         isMobile={isMobile} syndicatId={activeSyndicatId || undefined}/>}
       {tab === "utilisateurs" && <TabUtilisateurs isMobile={isMobile} syndicatId={activeSyndicatId || undefined}/>}
+      {tab === "modules"       && <TabModules       isMobile={isMobile}/>}
       {tab === "parametres"   && <TabParametres   isMobile={isMobile}/>}
+      {tab === "site_content" && <TabSiteContent  isMobile={isMobile}/>}
+      {tab === "demandes"     && <TabDemandesModules isMobile={isMobile}/>}
     </div>
   );
 };
